@@ -1,5 +1,7 @@
 # Palabras de DTMF
 
+[![CI](https://github.com/SGJIII/badbunny-flash-cards/actions/workflows/ci.yml/badge.svg)](https://github.com/SGJIII/badbunny-flash-cards/actions/workflows/ci.yml)
+
 A local-first Spanish flashcard site built from the deduplicated vocabulary in Bad Bunny’s **DeBÍ TiRAR MáS FOToS**.
 
 ## What’s included
@@ -12,6 +14,7 @@ A local-first Spanish flashcard site built from the deduplicated vocabulary in B
 - per-card problem reports with a one-by-one review queue, local backup, JSON export, and Netlify Forms delivery
 - wrong/right mastery rounds that recycle missed words until you finish a clean round
 - card flipping, keyboard shortcuts, pronunciation, search, and word-frequency context
+- Spanish-first or English-first cards, with concise English explanations of how each word is used in its song
 - progress saved in the visitor’s browser; no account or database required
 - a static Netlify-ready build
 
@@ -36,6 +39,8 @@ pnpm lint
 ## Deploy to Netlify
 
 Push the repository to GitHub and import it in Netlify. The included `netlify.toml` sets the build command and static output folder automatically.
+
+GitHub Actions runs a locked install, lint, production build, and rendered-app tests for every pull request and every push to `main`. Netlify’s Git integration provides continuous deployment from the passing `main` branch.
 
 In Netlify, open **Forms**, enable form detection, and redeploy once. Card reports will then appear under the `card-report` form; reports also retain a device-local copy that can be reviewed or exported from the site.
 

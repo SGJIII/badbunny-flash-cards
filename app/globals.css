@@ -448,6 +448,47 @@ input:focus-visible {
   font-size: 21px;
 }
 
+.direction-control {
+  width: min(100%, 700px);
+  margin: 16px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.direction-control > span {
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+}
+
+.direction-control > div {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: rgba(255, 250, 240, 0.5);
+}
+
+.direction-control button {
+  min-width: 76px;
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 99px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.direction-control button.is-active {
+  background: var(--forest);
+  color: var(--paper);
+}
+
 .round-status {
   width: min(100%, 700px);
   margin: 18px auto 0;
@@ -636,6 +677,13 @@ input:focus-visible {
   word-break: break-word;
 }
 
+.term.is-english-prompt {
+  max-width: 84%;
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.7vw, 62px);
+  line-height: 1.03;
+}
+
 .meaning {
   font-size: clamp(34px, 4.6vw, 61px);
 }
@@ -645,9 +693,51 @@ input:focus-visible {
   font-size: clamp(29px, 3.7vw, 49px);
 }
 
+.meaning.has-context {
+  max-width: 86%;
+  font-size: clamp(28px, 3.8vw, 50px);
+}
+
+.meaning.has-context.has-grammar {
+  font-size: clamp(25px, 3.2vw, 42px);
+}
+
+.meaning.is-spanish-answer {
+  font-size: clamp(35px, 4.5vw, 58px);
+}
+
+.meaning.is-spanish-answer.has-grammar {
+  font-size: clamp(30px, 3.8vw, 48px);
+}
+
+.usage-context {
+  max-width: 88%;
+  margin-top: 12px;
+  padding-top: 9px;
+  display: block;
+  border-top: 1px solid rgba(24, 63, 50, 0.24);
+  color: var(--forest);
+  text-align: center;
+}
+
+.usage-context > span {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(24, 63, 50, 0.62);
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.usage-context small {
+  display: block;
+  font-size: 9px;
+  line-height: 1.35;
+}
+
 .grammar-panel {
   max-width: 88%;
-  margin-top: 17px;
+  margin-top: 9px;
   padding: 9px 13px;
   display: flex;
   align-items: baseline;
@@ -1594,6 +1684,16 @@ input:focus-visible {
     font-size: 15px;
   }
 
+  .direction-control {
+    margin-top: 13px;
+    justify-content: space-between;
+  }
+
+  .direction-control button {
+    min-width: 70px;
+    padding-inline: 9px;
+  }
+
   .round-status {
     grid-template-columns: 1fr auto;
     gap: 8px 12px;
@@ -1634,12 +1734,36 @@ input:focus-visible {
     font-size: clamp(44px, 16vw, 70px);
   }
 
+  .term.is-english-prompt {
+    font-size: clamp(31px, 11vw, 47px);
+  }
+
   .meaning {
     font-size: clamp(30px, 11vw, 47px);
   }
 
   .meaning.has-grammar {
     font-size: clamp(26px, 9vw, 39px);
+  }
+
+  .meaning.has-context,
+  .meaning.is-spanish-answer {
+    font-size: clamp(27px, 9vw, 40px);
+  }
+
+  .meaning.has-context.has-grammar,
+  .meaning.is-spanish-answer.has-grammar {
+    font-size: clamp(24px, 8vw, 35px);
+  }
+
+  .usage-context {
+    max-width: 92%;
+    margin-top: 9px;
+    padding-top: 7px;
+  }
+
+  .usage-context small {
+    font-size: 8px;
   }
 
   .grammar-panel {

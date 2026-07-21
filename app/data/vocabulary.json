@@ -5349,7 +5349,7 @@
     {
       "id": 334,
       "term": "fotito",
-      "meaning": "photo",
+      "meaning": "little photo / cute little photo",
       "count": 3,
       "tracks": [
         2,
@@ -5358,7 +5358,7 @@
       ],
       "tier": "frequent",
       "category": "standard",
-      "source": "machine"
+      "source": "curated"
     },
     {
       "id": 335,

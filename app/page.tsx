@@ -6,6 +6,7 @@ import vocabularyData from "./data/vocabulary.json";
 
 type WordCard = (typeof vocabularyData.words)[number];
 type Mode = "all" | "essential" | "slang" | "verbs" | "track" | "saved" | "learning";
+type StudyDirection = "spanish-first" | "english-first";
 type GrammarEntry = {
   kind: "verb" | "noun" | "mixed";
   gloss?: string;
@@ -42,6 +43,7 @@ const TRACK_WORD_COUNTS = Object.fromEntries(
 ) as Record<number, number>;
 const STORAGE_KEY = "palabras-dtmf-progress-v1";
 const REPORTS_KEY = "palabras-dtmf-reports-v1";
+const DIRECTION_KEY = "palabras-dtmf-direction-v1";
 
 const ISSUE_LABELS: Record<IssueKind, string> = {
   translation: "Traducción incorrecta",
@@ -99,12 +101,40 @@ function makeQueue(mode: Mode, progress: ProgressMap, trackId = 0, leadId?: numb
   return randomized;
 }
 
+function englishUsageContext(
+  word: WordCard,
+  grammar: GrammarEntry | undefined,
+  trackTitle: string | undefined,
+) {
+  const where = trackTitle ? `In “${trackTitle},”` : "On the album,";
+  const meaning = grammar?.gloss ?? word.meaning;
+  const form = grammar?.form.replaceAll(" · ", ", ");
+
+  if (word.term === "fotito") {
+    return `${where} “fotito” is a diminutive of foto: literally “little photo,” often with an affectionate “cute little photo” tone.`;
+  }
+  if (grammar?.kind === "verb") {
+    return `${where} “${word.term}” is the ${form} form${grammar.lemma ? ` of ${grammar.lemma}` : ""}; here it means “${meaning}.”`;
+  }
+  if (grammar?.kind === "noun") {
+    return `${where} “${word.term}” functions as a ${form} and means “${meaning}.”`;
+  }
+  if (grammar?.kind === "mixed") {
+    return `${where} “${word.term}” is used as ${form}; in this context it means “${meaning}.”`;
+  }
+  if (word.category === "slang") {
+    return `${where} “${word.term}” is Puerto Rican or Caribbean slang meaning “${meaning}.”`;
+  }
+  return `${where} “${word.term}” carries the sense “${meaning}.”`;
+}
+
 function Icon({ children }: { children: React.ReactNode }) {
   return <span aria-hidden="true">{children}</span>;
 }
 
 export default function Home() {
   const [mode, setMode] = useState<Mode>("all");
+  const [studyDirection, setStudyDirection] = useState<StudyDirection>("spanish-first");
   const [selectedTrackId, setSelectedTrackId] = useState(0);
   const [progress, setProgress] = useState<ProgressMap>({});
   const [reports, setReports] = useState<CardReport[]>([]);
@@ -142,6 +172,10 @@ export default function Home() {
       if (storedReports) {
         setReports(JSON.parse(storedReports) as CardReport[]);
       }
+      const storedDirection = window.localStorage.getItem(DIRECTION_KEY);
+      if (storedDirection === "spanish-first" || storedDirection === "english-first") {
+        setStudyDirection(storedDirection);
+      }
     } catch {
       // A private browser session can block storage; practice still works.
     }
@@ -165,6 +199,15 @@ export default function Home() {
       // Netlify still receives deployed submissions if local storage is unavailable.
     }
   }, [hydrated, reports]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    try {
+      window.localStorage.setItem(DIRECTION_KEY, studyDirection);
+    } catch {
+      // Keep the preference in memory when storage is unavailable.
+    }
+  }, [hydrated, studyDirection]);
 
   useEffect(() => {
     if (!reportNotice) return;
@@ -454,6 +497,15 @@ export default function Home() {
       ? selectedTrack.title
       : `${MODE_LABELS[mode]} · ${selectedTrack.title}`
     : MODE_LABELS[mode];
+  const englishFirst = studyDirection === "english-first";
+  const contextTrack = selectedTrack && currentWord?.tracks.includes(selectedTrack.id)
+    ? selectedTrack
+    : relatedTracks[0];
+  const usageContext = currentWord
+    ? englishUsageContext(currentWord, currentGrammar, contextTrack?.title)
+    : "";
+  const frontText = englishFirst ? currentMeaning : currentWord?.term ?? "";
+  const backText = englishFirst ? currentWord?.term ?? "" : currentMeaning;
   const deckPosition = queue.length ? queueIndex + 1 : 0;
   const roundCorrect = Math.max(0, queueIndex - missedIds.length);
   const roundProgress = queue.length ? Math.round((queueIndex / queue.length) * 100) : 0;
@@ -574,6 +626,34 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="direction-control" aria-label="Choose which language appears first">
+            <span>FRENTE DE LA TARJETA</span>
+            <div role="group" aria-label="Front language">
+              <button
+                type="button"
+                className={!englishFirst ? "is-active" : ""}
+                onClick={() => {
+                  setStudyDirection("spanish-first");
+                  setFlipped(false);
+                }}
+                aria-pressed={!englishFirst}
+              >
+                Español
+              </button>
+              <button
+                type="button"
+                className={englishFirst ? "is-active" : ""}
+                onClick={() => {
+                  setStudyDirection("english-first");
+                  setFlipped(false);
+                }}
+                aria-pressed={englishFirst}
+              >
+                English
+              </button>
+            </div>
+          </div>
+
           {!runComplete && currentWord && (
             <div className="round-status" aria-live="polite">
               <div>
@@ -607,36 +687,44 @@ export default function Home() {
                   type="button"
                   className={`flashcard ${flipped ? "is-flipped" : ""}`}
                   onClick={() => setFlipped((value) => !value)}
-                  aria-label={flipped ? `Meaning: ${currentMeaning}. Flip to Spanish.` : `${currentWord.term}. Flip for meaning.`}
+                  aria-label={flipped
+                    ? `${englishFirst ? "Spanish" : "English"}: ${backText}. ${usageContext}. Flip back.`
+                    : `${englishFirst ? "English" : "Spanish"}: ${frontText}. Flip for the answer.`}
                   aria-pressed={flipped}
                 >
                   <span className="flashcard-inner">
                     <span className="card-face card-front">
                       <span className="card-topline">
-                        <span>ESPAÑOL</span>
-                        <span>{currentGrammar?.kind === "verb" || currentGrammar?.kind === "mixed"
-                          ? "FORMA VERBAL"
-                          : currentGrammar?.kind === "noun"
-                            ? "SUSTANTIVO"
-                            : currentWord.category === "slang"
-                              ? "PR + JERGA"
-                              : currentWord.tier.replace("-", " ").toUpperCase()}</span>
+                        <span>{englishFirst ? "ENGLISH" : "ESPAÑOL"}</span>
+                        {!englishFirst && (
+                          <span>{currentGrammar?.kind === "verb" || currentGrammar?.kind === "mixed"
+                            ? "FORMA VERBAL"
+                            : currentGrammar?.kind === "noun"
+                              ? "SUSTANTIVO"
+                              : currentWord.category === "slang"
+                                ? "PR + JERGA"
+                                : currentWord.tier.replace("-", " ").toUpperCase()}</span>
+                        )}
                       </span>
-                      <span className="term">{currentWord.term}</span>
+                      <span className={`term ${englishFirst ? "is-english-prompt" : ""}`}>{frontText}</span>
                       <span className="flip-hint"><Icon>↻</Icon> toca para revelar</span>
                     </span>
                     <span className="card-face card-back">
                       <span className="card-topline">
-                        <span>ENGLISH</span>
-                        <span>{currentGrammar ? "GRAMMAR CHECKED" : currentWord.source === "curated" ? "CURATED" : "TRANSLATION"}</span>
+                        <span>{englishFirst ? "ESPAÑOL" : "ENGLISH"}</span>
+                        <span>{englishFirst ? "WORD + CONTEXT" : currentGrammar ? "GRAMMAR CHECKED" : currentWord.source === "curated" ? "CURATED" : "TRANSLATION"}</span>
                       </span>
-                      <span className={`meaning ${currentGrammar ? "has-grammar" : ""}`}>{currentMeaning}</span>
+                      <span className={`meaning has-context ${currentGrammar ? "has-grammar" : ""} ${englishFirst ? "is-spanish-answer" : ""}`}>{backText}</span>
+                      <span className="usage-context">
+                        <span>HOW IT’S USED · PARAPHRASED</span>
+                        <small>{usageContext}</small>
+                      </span>
                       {currentGrammar && (
                         <span className={`grammar-panel is-${currentGrammar.kind}`}>
-                          <span className="grammar-kicker">{currentGrammar.kind === "noun" ? "USO EN EL ÁLBUM" : "FORMA VERBAL"}</span>
+                          <span className="grammar-kicker">{currentGrammar.kind === "noun" ? "ALBUM USAGE" : "VERB FORM"}</span>
                           {currentGrammar.lemma && <strong>{currentGrammar.lemma}</strong>}
                           <span>{currentGrammar.form}</span>
-                          {currentGrammar.alsoUsedAs && <small>También aparece como {currentGrammar.alsoUsedAs}.</small>}
+                          {currentGrammar.alsoUsedAs && <small>Also appears as {currentGrammar.alsoUsedAs}.</small>}
                           {currentGrammar.note && <small>{currentGrammar.note}</small>}
                         </span>
                       )}

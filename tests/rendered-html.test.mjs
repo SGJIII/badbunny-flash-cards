@@ -25,6 +25,8 @@ test("server-renders the finished study experience", async () => {
   assert.match(html, /Practica una canción/);
   assert.match(html, /NUEVAYoL/);
   assert.match(html, /Reportes pendientes/);
+  assert.match(html, /FRENTE DE LA TARJETA/);
+  assert.match(html, /English/);
   assert.match(html, /name="card-report"/);
   assert.match(html, /data-netlify="true"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
@@ -53,6 +55,7 @@ test("ships a complete, deduplicated vocabulary-only dataset", async () => {
   assert.equal(grammar.entries.bailo.lemma, "bailar");
   assert.equal(grammar.entries.baile.form, "masculine noun");
   assert.equal(grammar.entries.bailando.form, "gerund");
+  assert.equal(data.words.find((word) => word.term === "fotito").meaning, "little photo / cute little photo");
 });
 
 test("removes the disposable starter and includes Netlify output config", async () => {
@@ -79,4 +82,7 @@ test("removes the disposable starter and includes Netlify output config", async 
   assert.match(page, /if \(trackId && !word\.tracks\.includes\(trackId\)\) return false/);
   assert.match(page, /idsForMode\(item, progress, selectedTrackId\)\.length/);
   assert.match(page, /Todo el álbum/);
+  assert.match(page, /english-first/);
+  assert.match(page, /HOW IT’S USED · PARAPHRASED/);
+  assert.match(page, /englishUsageContext/);
 });

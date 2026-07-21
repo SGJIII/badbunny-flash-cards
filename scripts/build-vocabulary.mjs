@@ -93,6 +93,7 @@ const OVERRIDES = {
   esto: "this",
   fui: "I went / I was",
   fue: "was / went",
+  fotito: "little photo / cute little photo",
   guagua: "bus (Caribbean Spanish)",
   ha: "has",
   hay: "there is / there are",
