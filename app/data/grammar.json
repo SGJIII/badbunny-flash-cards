@@ -1,0 +1,2495 @@
+{
+  "generatedAt": "2026-07-21",
+  "methodology": "Album-context POS and morphology tagging cross-checked against open-source Spanish conjugation tables; selected colloquial and ambiguous forms manually reviewed.",
+  "annotatedWords": 485,
+  "entries": {
+    "ve": {
+      "kind": "verb",
+      "gloss": "go / he or she sees",
+      "lemma": "ir / ver",
+      "form": "tú · command / él/ella/usted · present indicative"
+    },
+    "es": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "él/ella/usted · present indicative"
+    },
+    "vamo": {
+      "kind": "verb",
+      "gloss": "we’re going / let’s go",
+      "lemma": "ir",
+      "form": "nosotros/as · present or command · colloquial vamos"
+    },
+    "va": {
+      "kind": "verb",
+      "lemma": "ir",
+      "form": "él/ella/usted · present indicative",
+      "alsoUsedAs": "noun"
+    },
+    "vo'a": {
+      "kind": "verb",
+      "gloss": "I’m going to",
+      "lemma": "ir",
+      "form": "yo · present indicative · colloquial voy a"
+    },
+    "estoy": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "yo · present indicative"
+    },
+    "ver": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "infinitive"
+    },
+    "sé": {
+      "kind": "verb",
+      "lemma": "saber",
+      "form": "yo · present indicative"
+    },
+    "soy": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "yo · present indicative"
+    },
+    "está": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "quiero": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "yo · present indicative"
+    },
+    "ven": {
+      "kind": "verb",
+      "gloss": "come / they see",
+      "lemma": "venir / ver",
+      "form": "tú · command / ellos/ellas/ustedes · present indicative"
+    },
+    "voy": {
+      "kind": "verb",
+      "lemma": "ir",
+      "form": "yo · present indicative",
+      "alsoUsedAs": "noun"
+    },
+    "hace": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "él/ella/usted · present indicative"
+    },
+    "tengo": {
+      "kind": "verb",
+      "lemma": "tener",
+      "form": "yo · present indicative"
+    },
+    "hay": {
+      "kind": "verb",
+      "gloss": "there is / there are",
+      "lemma": "haber",
+      "form": "impersonal · present indicative"
+    },
+    "ser": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "infinitive"
+    },
+    "estás": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "tú · present indicative"
+    },
+    "puedo": {
+      "kind": "verb",
+      "lemma": "poder",
+      "form": "yo · present indicative"
+    },
+    "tiene": {
+      "kind": "verb",
+      "lemma": "tener",
+      "form": "él/ella/usted · present indicative"
+    },
+    "fue": {
+      "kind": "verb",
+      "gloss": "was / went",
+      "lemma": "ser / ir",
+      "form": "él/ella/usted · preterite"
+    },
+    "quieres": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "tú · present indicative",
+      "alsoUsedAs": "propn"
+    },
+    "son": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "dime": {
+      "kind": "verb",
+      "gloss": "tell me",
+      "lemma": "decir",
+      "form": "tú · affirmative command + me"
+    },
+    "enseñaste": {
+      "kind": "verb",
+      "lemma": "enseñar",
+      "form": "tú · preterite"
+    },
+    "dar": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "infinitive"
+    },
+    "eres": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "tú · present indicative",
+      "alsoUsedAs": "propn"
+    },
+    "fuiste": {
+      "kind": "verb",
+      "gloss": "you were / you went",
+      "lemma": "ser / ir",
+      "form": "tú · preterite"
+    },
+    "lleva": {
+      "kind": "verb",
+      "lemma": "llevar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "quiere": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "él/ella/usted · present indicative"
+    },
+    "subiendo": {
+      "kind": "verb",
+      "lemma": "subir",
+      "form": "gerund",
+      "alsoUsedAs": "propn"
+    },
+    "estará": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "él/ella/usted · future"
+    },
+    "gusta": {
+      "kind": "verb",
+      "lemma": "gustar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "sale": {
+      "kind": "verb",
+      "lemma": "salir",
+      "form": "él/ella/usted · present indicative"
+    },
+    "ves": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "tú · present indicative"
+    },
+    "bailar": {
+      "kind": "verb",
+      "gloss": "to dance",
+      "lemma": "bailar",
+      "form": "infinitive"
+    },
+    "bajar": {
+      "kind": "verb",
+      "lemma": "bajar",
+      "form": "infinitive"
+    },
+    "debí": {
+      "kind": "verb",
+      "lemma": "deber",
+      "form": "yo · preterite"
+    },
+    "di": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "yo · preterite"
+    },
+    "escuchando": {
+      "kind": "verb",
+      "lemma": "escuchar",
+      "form": "gerund"
+    },
+    "estamo": {
+      "kind": "verb",
+      "gloss": "we are",
+      "lemma": "estar",
+      "form": "nosotros/as · present indicative · colloquial estamos"
+    },
+    "iba": {
+      "kind": "verb",
+      "lemma": "ir",
+      "form": "él/ella/usted · imperfect"
+    },
+    "querer": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "infinitive"
+    },
+    "sabe": {
+      "kind": "verb",
+      "lemma": "saber",
+      "form": "él/ella/usted · present indicative"
+    },
+    "tienes": {
+      "kind": "verb",
+      "lemma": "tener",
+      "form": "tú · present indicative"
+    },
+    "bebiendo": {
+      "kind": "verb",
+      "lemma": "beber",
+      "form": "gerund"
+    },
+    "beso": {
+      "kind": "verb",
+      "lemma": "besar",
+      "form": "yo · present indicative",
+      "alsoUsedAs": "noun"
+    },
+    "borrar": {
+      "kind": "verb",
+      "lemma": "borrar",
+      "form": "infinitive"
+    },
+    "casa": {
+      "kind": "verb",
+      "lemma": "casar",
+      "form": "él/ella/usted · present indicative",
+      "alsoUsedAs": "noun"
+    },
+    "fui": {
+      "kind": "verb",
+      "gloss": "I was / I went",
+      "lemma": "ser / ir",
+      "form": "yo · preterite"
+    },
+    "haciendo": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "gerund"
+    },
+    "olvidar": {
+      "kind": "verb",
+      "lemma": "olvidar",
+      "form": "infinitive"
+    },
+    "paso": {
+      "kind": "verb",
+      "lemma": "pasar",
+      "form": "past participle",
+      "alsoUsedAs": "noun"
+    },
+    "perreá": {
+      "kind": "verb",
+      "gloss": "dance reggaetón / grind",
+      "lemma": "perrear",
+      "form": "tú · affirmative command · colloquial perrea"
+    },
+    "rompe": {
+      "kind": "verb",
+      "lemma": "romper",
+      "form": "él/ella/usted · present indicative",
+      "alsoUsedAs": "propn"
+    },
+    "vaya": {
+      "kind": "verb",
+      "lemma": "ir",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "veo": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "yo · present indicative"
+    },
+    "ando": {
+      "kind": "verb",
+      "lemma": "andar",
+      "form": "yo · present indicative"
+    },
+    "dan": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "dice": {
+      "kind": "verb",
+      "lemma": "decir",
+      "form": "él/ella/usted · present indicative"
+    },
+    "hacer": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "infinitive"
+    },
+    "he": {
+      "kind": "verb",
+      "lemma": "haber",
+      "form": "yo · present indicative"
+    },
+    "mirando": {
+      "kind": "verb",
+      "lemma": "mirar",
+      "form": "gerund"
+    },
+    "pienso": {
+      "kind": "verb",
+      "lemma": "pensar",
+      "form": "yo · present indicative"
+    },
+    "puede": {
+      "kind": "verb",
+      "lemma": "poder",
+      "form": "él/ella/usted · present indicative"
+    },
+    "quedo": {
+      "kind": "verb",
+      "lemma": "quedar",
+      "form": "yo · present indicative"
+    },
+    "quería": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "él/ella/usted · imperfect"
+    },
+    "quieren": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "será": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "él/ella/usted · future"
+    },
+    "sigue": {
+      "kind": "verb",
+      "lemma": "seguir",
+      "form": "él/ella/usted · present indicative"
+    },
+    "sube": {
+      "kind": "verb",
+      "lemma": "subir",
+      "form": "él/ella/usted · present indicative"
+    },
+    "suelto": {
+      "kind": "verb",
+      "lemma": "soltar",
+      "form": "yo · present indicative",
+      "alsoUsedAs": "adj"
+    },
+    "tirar": {
+      "kind": "verb",
+      "lemma": "tirar",
+      "form": "infinitive"
+    },
+    "beber": {
+      "kind": "verb",
+      "lemma": "beber",
+      "form": "infinitive"
+    },
+    "cazando": {
+      "kind": "verb",
+      "lemma": "cazar",
+      "form": "gerund"
+    },
+    "da": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "dejaste": {
+      "kind": "verb",
+      "lemma": "dejar",
+      "form": "tú · preterite"
+    },
+    "ere": {
+      "kind": "verb",
+      "gloss": "you are",
+      "lemma": "ser",
+      "form": "tú · present indicative · colloquial eres"
+    },
+    "estaba": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "él/ella/usted · imperfect"
+    },
+    "están": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "hagan": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "hice": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "yo · preterite"
+    },
+    "irse": {
+      "kind": "verb",
+      "gloss": "to leave / to go away",
+      "lemma": "irse",
+      "form": "reflexive infinitive"
+    },
+    "llenar": {
+      "kind": "verb",
+      "lemma": "llenar",
+      "form": "infinitive"
+    },
+    "pasó": {
+      "kind": "verb",
+      "lemma": "pasar",
+      "form": "él/ella/usted · preterite"
+    },
+    "pedí": {
+      "kind": "verb",
+      "lemma": "pedir",
+      "form": "yo · preterite"
+    },
+    "pude": {
+      "kind": "verb",
+      "lemma": "poder",
+      "form": "yo · preterite"
+    },
+    "sal": {
+      "kind": "verb",
+      "gloss": "leave / go out",
+      "lemma": "salir",
+      "form": "tú · affirmative command"
+    },
+    "sea": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "siento": {
+      "kind": "verb",
+      "lemma": "sentir",
+      "form": "yo · present indicative",
+      "alsoUsedAs": "propn"
+    },
+    "somos": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "nosotros/as · present indicative"
+    },
+    "tas": {
+      "kind": "verb",
+      "gloss": "you are",
+      "lemma": "estar",
+      "form": "tú · present indicative · colloquial estás"
+    },
+    "terminó": {
+      "kind": "verb",
+      "lemma": "terminar",
+      "form": "él/ella/usted · preterite"
+    },
+    "tuve": {
+      "kind": "verb",
+      "lemma": "tener",
+      "form": "yo · preterite"
+    },
+    "vi": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "yo · preterite",
+      "alsoUsedAs": "noun"
+    },
+    "vivir": {
+      "kind": "verb",
+      "lemma": "vivir",
+      "form": "infinitive"
+    },
+    "anda": {
+      "kind": "verb",
+      "lemma": "andar",
+      "form": "él/ella/usted · present indicative",
+      "alsoUsedAs": "propn"
+    },
+    "bailando": {
+      "kind": "verb",
+      "lemma": "bailar",
+      "form": "gerund"
+    },
+    "baile": {
+      "kind": "noun",
+      "gloss": "dance",
+      "form": "masculine noun",
+      "note": "Here it is a noun. As a verb, baile can also be present subjunctive or a formal command of bailar."
+    },
+    "bailen": {
+      "kind": "verb",
+      "gloss": "that they / you all dance",
+      "lemma": "bailar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "caí": {
+      "kind": "verb",
+      "lemma": "caer",
+      "form": "yo · preterite",
+      "alsoUsedAs": "propn"
+    },
+    "cumplió": {
+      "kind": "verb",
+      "lemma": "cumplir",
+      "form": "él/ella/usted · preterite"
+    },
+    "dando": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "gerund"
+    },
+    "dicen": {
+      "kind": "verb",
+      "lemma": "decir",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "diga": {
+      "kind": "verb",
+      "lemma": "decir",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "divertir": {
+      "kind": "verb",
+      "lemma": "divertir",
+      "form": "infinitive"
+    },
+    "doy": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "yo · present indicative"
+    },
+    "eras": {
+      "kind": "verb",
+      "lemma": "erar",
+      "form": "tú · present indicative",
+      "alsoUsedAs": "pron, propn"
+    },
+    "escuche": {
+      "kind": "verb",
+      "lemma": "escuchar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "estar": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "infinitive"
+    },
+    "fuera": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "él/ella/usted · imperfect subjunctive",
+      "alsoUsedAs": "adv"
+    },
+    "haces": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "tú · present indicative"
+    },
+    "hago": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "yo · present indicative"
+    },
+    "importa": {
+      "kind": "verb",
+      "lemma": "importar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "ir": {
+      "kind": "verb",
+      "lemma": "ir",
+      "form": "infinitive"
+    },
+    "llevar": {
+      "kind": "verb",
+      "lemma": "llevar",
+      "form": "infinitive"
+    },
+    "llorando": {
+      "kind": "verb",
+      "lemma": "llorar",
+      "form": "gerund",
+      "alsoUsedAs": "propn"
+    },
+    "mira": {
+      "kind": "verb",
+      "lemma": "mirar",
+      "form": "él/ella/usted · present indicative",
+      "alsoUsedAs": "noun"
+    },
+    "mirar": {
+      "kind": "verb",
+      "lemma": "mirar",
+      "form": "infinitive"
+    },
+    "nació": {
+      "kind": "verb",
+      "lemma": "nacer",
+      "form": "él/ella/usted · preterite"
+    },
+    "necesita": {
+      "kind": "verb",
+      "lemma": "necesitar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "pasar": {
+      "kind": "verb",
+      "lemma": "pasar",
+      "form": "infinitive"
+    },
+    "probar": {
+      "kind": "verb",
+      "lemma": "probar",
+      "form": "infinitive"
+    },
+    "queda": {
+      "kind": "verb",
+      "lemma": "quedar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "quedar": {
+      "kind": "verb",
+      "lemma": "quedar",
+      "form": "infinitive"
+    },
+    "quiera": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "él/ella/usted · present subjunctive",
+      "alsoUsedAs": "propn"
+    },
+    "sacas": {
+      "kind": "verb",
+      "lemma": "sacar",
+      "form": "tú · present indicative"
+    },
+    "seas": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "tú · present subjunctive",
+      "alsoUsedAs": "noun"
+    },
+    "suelte": {
+      "kind": "verb",
+      "lemma": "soltar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "superó": {
+      "kind": "verb",
+      "lemma": "superar",
+      "form": "él/ella/usted · preterite"
+    },
+    "tiro": {
+      "kind": "verb",
+      "lemma": "tirar",
+      "form": "yo · present indicative",
+      "alsoUsedAs": "adj"
+    },
+    "van": {
+      "kind": "verb",
+      "lemma": "ir",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "viera": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "él/ella/usted · imperfect subjunctive"
+    },
+    "viste": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "tú · preterite",
+      "alsoUsedAs": "noun"
+    },
+    "vuelves": {
+      "kind": "verb",
+      "lemma": "volver",
+      "form": "tú · present indicative"
+    },
+    "acuerda": {
+      "kind": "verb",
+      "lemma": "acordar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "aplaudir": {
+      "kind": "verb",
+      "lemma": "aplaudir",
+      "form": "infinitive"
+    },
+    "ayuden": {
+      "kind": "verb",
+      "lemma": "ayudar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "azota": {
+      "kind": "verb",
+      "lemma": "azotar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "bebe": {
+      "kind": "verb",
+      "lemma": "beber",
+      "form": "él/ella/usted · present indicative"
+    },
+    "besaba": {
+      "kind": "verb",
+      "lemma": "besar",
+      "form": "él/ella/usted · imperfect"
+    },
+    "buscando": {
+      "kind": "verb",
+      "lemma": "buscar",
+      "form": "gerund"
+    },
+    "buscar": {
+      "kind": "verb",
+      "lemma": "buscar",
+      "form": "infinitive"
+    },
+    "caes": {
+      "kind": "verb",
+      "lemma": "caer",
+      "form": "tú · present indicative"
+    },
+    "cantando": {
+      "kind": "verb",
+      "lemma": "cantar",
+      "form": "gerund"
+    },
+    "casar": {
+      "kind": "verb",
+      "lemma": "casar",
+      "form": "infinitive"
+    },
+    "chingue": {
+      "kind": "verb",
+      "lemma": "chingar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "cierra": {
+      "kind": "verb",
+      "lemma": "cerrar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "cojo": {
+      "kind": "verb",
+      "lemma": "coger",
+      "form": "yo · present indicative"
+    },
+    "competir": {
+      "kind": "verb",
+      "lemma": "competir",
+      "form": "infinitive"
+    },
+    "conocerás": {
+      "kind": "verb",
+      "lemma": "conocer",
+      "form": "tú · future"
+    },
+    "conocí": {
+      "kind": "verb",
+      "lemma": "conocer",
+      "form": "yo · preterite"
+    },
+    "creo": {
+      "kind": "verb",
+      "lemma": "creer",
+      "form": "yo · present indicative"
+    },
+    "debo": {
+      "kind": "verb",
+      "lemma": "deber",
+      "form": "yo · present indicative"
+    },
+    "decir": {
+      "kind": "verb",
+      "lemma": "decir",
+      "form": "infinitive"
+    },
+    "dejó": {
+      "kind": "verb",
+      "lemma": "dejar",
+      "form": "él/ella/usted · preterite"
+    },
+    "disfrutando": {
+      "kind": "verb",
+      "lemma": "disfrutar",
+      "form": "gerund"
+    },
+    "disfrutar": {
+      "kind": "verb",
+      "lemma": "disfrutar",
+      "form": "infinitive"
+    },
+    "diste": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "tú · preterite"
+    },
+    "dormir": {
+      "kind": "verb",
+      "lemma": "dormir",
+      "form": "infinitive"
+    },
+    "enseñé": {
+      "kind": "verb",
+      "lemma": "enseñar",
+      "form": "yo · preterite"
+    },
+    "envejecer": {
+      "kind": "verb",
+      "lemma": "envejecer",
+      "form": "infinitive"
+    },
+    "espero": {
+      "kind": "verb",
+      "lemma": "esperar",
+      "form": "yo · present indicative"
+    },
+    "esté": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "estuve": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "yo · preterite"
+    },
+    "hablar": {
+      "kind": "verb",
+      "lemma": "hablar",
+      "form": "infinitive"
+    },
+    "hablen": {
+      "kind": "verb",
+      "lemma": "hablar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "hacen": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "hacía": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "él/ella/usted · imperfect"
+    },
+    "has": {
+      "kind": "verb",
+      "lemma": "haber",
+      "form": "tú · present indicative"
+    },
+    "ilusionar": {
+      "kind": "verb",
+      "lemma": "ilusionar",
+      "form": "infinitive"
+    },
+    "llega": {
+      "kind": "verb",
+      "lemma": "llegar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "llegó": {
+      "kind": "verb",
+      "lemma": "llegar",
+      "form": "él/ella/usted · preterite"
+    },
+    "llevo": {
+      "kind": "verb",
+      "lemma": "llevar",
+      "form": "yo · present indicative"
+    },
+    "llorara": {
+      "kind": "verb",
+      "lemma": "llorar",
+      "form": "él/ella/usted · imperfect subjunctive"
+    },
+    "mentir": {
+      "kind": "verb",
+      "lemma": "mentir",
+      "form": "infinitive"
+    },
+    "meto": {
+      "kind": "verb",
+      "lemma": "meter",
+      "form": "yo · present indicative"
+    },
+    "miro": {
+      "kind": "verb",
+      "lemma": "mirar",
+      "form": "yo · present indicative"
+    },
+    "montan": {
+      "kind": "verb",
+      "lemma": "montar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "mover": {
+      "kind": "verb",
+      "lemma": "mover",
+      "form": "infinitive"
+    },
+    "muevo": {
+      "kind": "verb",
+      "lemma": "mover",
+      "form": "yo · present indicative"
+    },
+    "olvidaste": {
+      "kind": "verb",
+      "lemma": "olvidar",
+      "form": "tú · preterite"
+    },
+    "pagar": {
+      "kind": "verb",
+      "lemma": "pagar",
+      "form": "infinitive"
+    },
+    "parece": {
+      "kind": "verb",
+      "lemma": "parecer",
+      "form": "él/ella/usted · present indicative"
+    },
+    "pase": {
+      "kind": "verb",
+      "lemma": "pasar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "pensaba": {
+      "kind": "verb",
+      "lemma": "pensar",
+      "form": "él/ella/usted · imperfect"
+    },
+    "pensando": {
+      "kind": "verb",
+      "lemma": "pensar",
+      "form": "gerund"
+    },
+    "podrá": {
+      "kind": "verb",
+      "lemma": "poder",
+      "form": "él/ella/usted · future"
+    },
+    "pondrías": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "tú · conditional"
+    },
+    "pone": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "él/ella/usted · present indicative"
+    },
+    "pregunto": {
+      "kind": "verb",
+      "lemma": "preguntar",
+      "form": "yo · present indicative",
+      "alsoUsedAs": "noun"
+    },
+    "pudo": {
+      "kind": "verb",
+      "lemma": "poder",
+      "form": "él/ella/usted · preterite"
+    },
+    "puse": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "yo · preterite"
+    },
+    "quiso": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "él/ella/usted · preterite"
+    },
+    "saben": {
+      "kind": "verb",
+      "lemma": "saber",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "saber": {
+      "kind": "verb",
+      "lemma": "saber",
+      "form": "infinitive"
+    },
+    "sabes": {
+      "kind": "verb",
+      "lemma": "saber",
+      "form": "tú · present indicative"
+    },
+    "sabrá": {
+      "kind": "verb",
+      "lemma": "saber",
+      "form": "él/ella/usted · future"
+    },
+    "saca": {
+      "kind": "verb",
+      "lemma": "sacar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "salí": {
+      "kind": "verb",
+      "lemma": "salir",
+      "form": "yo · preterite"
+    },
+    "siente": {
+      "kind": "verb",
+      "lemma": "sentir",
+      "form": "él/ella/usted · present indicative"
+    },
+    "significa": {
+      "kind": "verb",
+      "lemma": "significar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "suban": {
+      "kind": "verb",
+      "lemma": "subir",
+      "form": "ellos/ellas/ustedes · present subjunctive",
+      "alsoUsedAs": "propn"
+    },
+    "suena": {
+      "kind": "verb",
+      "lemma": "sonar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "sufría": {
+      "kind": "verb",
+      "lemma": "sufrir",
+      "form": "él/ella/usted · imperfect"
+    },
+    "supiera": {
+      "kind": "verb",
+      "lemma": "saber",
+      "form": "él/ella/usted · imperfect subjunctive"
+    },
+    "tás": {
+      "kind": "verb",
+      "gloss": "you are",
+      "lemma": "estar",
+      "form": "tú · present indicative · colloquial estás"
+    },
+    "tenía": {
+      "kind": "verb",
+      "lemma": "tener",
+      "form": "él/ella/usted · imperfect"
+    },
+    "tenido": {
+      "kind": "verb",
+      "lemma": "tener",
+      "form": "past participle"
+    },
+    "termina": {
+      "kind": "verb",
+      "lemma": "terminar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "tocaba": {
+      "kind": "verb",
+      "lemma": "tocar",
+      "form": "él/ella/usted · imperfect"
+    },
+    "toque": {
+      "kind": "verb",
+      "lemma": "tocar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "trajo": {
+      "kind": "verb",
+      "lemma": "traer",
+      "form": "él/ella/usted · preterite"
+    },
+    "vacilara": {
+      "kind": "verb",
+      "lemma": "vacilar",
+      "form": "él/ella/usted · imperfect subjunctive"
+    },
+    "vámono": {
+      "kind": "verb",
+      "gloss": "let’s go",
+      "lemma": "irse",
+      "form": "nosotros/as · affirmative command · colloquial vámonos"
+    },
+    "vamos": {
+      "kind": "verb",
+      "lemma": "ir",
+      "form": "nosotros/as · present indicative"
+    },
+    "vas": {
+      "kind": "verb",
+      "lemma": "ir",
+      "form": "tú · present indicative",
+      "alsoUsedAs": "noun"
+    },
+    "vea": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "viendo": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "gerund",
+      "alsoUsedAs": "propn"
+    },
+    "vienes": {
+      "kind": "verb",
+      "lemma": "venir",
+      "form": "tú · present indicative"
+    },
+    "vírate": {
+      "kind": "verb",
+      "gloss": "turn around / get out",
+      "lemma": "virarse",
+      "form": "tú · affirmative command · Puerto Rican usage"
+    },
+    "viva": {
+      "kind": "verb",
+      "lemma": "vivir",
+      "form": "él/ella/usted · present subjunctive",
+      "alsoUsedAs": "intj"
+    },
+    "volver": {
+      "kind": "verb",
+      "lemma": "volver",
+      "form": "infinitive"
+    },
+    "vuelvo": {
+      "kind": "verb",
+      "lemma": "volver",
+      "form": "yo · present indicative"
+    },
+    "acabo": {
+      "kind": "verb",
+      "lemma": "acabar",
+      "form": "yo · present indicative"
+    },
+    "acabó": {
+      "kind": "verb",
+      "lemma": "acabar",
+      "form": "él/ella/usted · preterite"
+    },
+    "acostar": {
+      "kind": "verb",
+      "lemma": "acostar",
+      "form": "infinitive"
+    },
+    "ajora": {
+      "kind": "verb",
+      "lemma": "ajorar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "alcanza": {
+      "kind": "verb",
+      "lemma": "alcanzar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "alejó": {
+      "kind": "verb",
+      "lemma": "alejar",
+      "form": "él/ella/usted · preterite"
+    },
+    "amar": {
+      "kind": "verb",
+      "lemma": "amar",
+      "form": "infinitive"
+    },
+    "amo": {
+      "kind": "verb",
+      "lemma": "amar",
+      "form": "yo · present indicative"
+    },
+    "aplicar": {
+      "kind": "verb",
+      "lemma": "aplicar",
+      "form": "infinitive"
+    },
+    "aplique": {
+      "kind": "verb",
+      "lemma": "aplicar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "aposté": {
+      "kind": "verb",
+      "lemma": "apostar",
+      "form": "yo · preterite"
+    },
+    "apretar": {
+      "kind": "verb",
+      "lemma": "apretar",
+      "form": "infinitive"
+    },
+    "ayude": {
+      "kind": "verb",
+      "lemma": "ayudar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "bailo": {
+      "kind": "verb",
+      "gloss": "I dance",
+      "lemma": "bailar",
+      "form": "yo · present indicative"
+    },
+    "bellaqueando": {
+      "kind": "verb",
+      "lemma": "bellaquear",
+      "form": "gerund"
+    },
+    "bellaquear": {
+      "kind": "verb",
+      "lemma": "bellaquear",
+      "form": "infinitive"
+    },
+    "besar": {
+      "kind": "verb",
+      "lemma": "besar",
+      "form": "infinitive"
+    },
+    "botando": {
+      "kind": "verb",
+      "lemma": "botar",
+      "form": "gerund"
+    },
+    "brilla": {
+      "kind": "verb",
+      "lemma": "brillar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "brillan": {
+      "kind": "verb",
+      "lemma": "brillar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "caer": {
+      "kind": "verb",
+      "lemma": "caer",
+      "form": "infinitive"
+    },
+    "cambian": {
+      "kind": "verb",
+      "lemma": "cambiar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "cambiaste": {
+      "kind": "verb",
+      "lemma": "cambiar",
+      "form": "tú · preterite"
+    },
+    "cambié": {
+      "kind": "verb",
+      "lemma": "cambiar",
+      "form": "yo · preterite"
+    },
+    "caminando": {
+      "kind": "verb",
+      "lemma": "caminar",
+      "form": "gerund"
+    },
+    "canto": {
+      "kind": "verb",
+      "lemma": "cantar",
+      "form": "yo · present indicative"
+    },
+    "casó": {
+      "kind": "verb",
+      "lemma": "casar",
+      "form": "él/ella/usted · preterite"
+    },
+    "cayendo": {
+      "kind": "verb",
+      "lemma": "caer",
+      "form": "gerund"
+    },
+    "cerraba": {
+      "kind": "verb",
+      "lemma": "cerrar",
+      "form": "él/ella/usted · imperfect"
+    },
+    "chinchorrear": {
+      "kind": "verb",
+      "lemma": "chinchorrear",
+      "form": "infinitive"
+    },
+    "chingando": {
+      "kind": "verb",
+      "lemma": "chingar",
+      "form": "gerund"
+    },
+    "chingar": {
+      "kind": "verb",
+      "lemma": "chingar",
+      "form": "infinitive"
+    },
+    "coge": {
+      "kind": "verb",
+      "lemma": "coger",
+      "form": "él/ella/usted · present indicative"
+    },
+    "coger": {
+      "kind": "verb",
+      "lemma": "coger",
+      "form": "infinitive"
+    },
+    "comandan": {
+      "kind": "verb",
+      "lemma": "comandar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "comer": {
+      "kind": "verb",
+      "lemma": "comer",
+      "form": "infinitive"
+    },
+    "conectando": {
+      "kind": "verb",
+      "lemma": "conectar",
+      "form": "gerund"
+    },
+    "confundas": {
+      "kind": "verb",
+      "lemma": "confundir",
+      "form": "tú · present subjunctive"
+    },
+    "conoce": {
+      "kind": "verb",
+      "lemma": "conocer",
+      "form": "él/ella/usted · present indicative"
+    },
+    "conocen": {
+      "kind": "verb",
+      "lemma": "conocer",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "conocer": {
+      "kind": "verb",
+      "lemma": "conocer",
+      "form": "infinitive"
+    },
+    "conocieron": {
+      "kind": "verb",
+      "lemma": "conocer",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "conoció": {
+      "kind": "verb",
+      "lemma": "conocer",
+      "form": "él/ella/usted · preterite"
+    },
+    "conozca": {
+      "kind": "verb",
+      "lemma": "conocer",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "conté": {
+      "kind": "verb",
+      "lemma": "contar",
+      "form": "yo · preterite"
+    },
+    "convertí": {
+      "kind": "verb",
+      "lemma": "convertir",
+      "form": "yo · preterite"
+    },
+    "convierten": {
+      "kind": "verb",
+      "lemma": "convertir",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "correr": {
+      "kind": "verb",
+      "lemma": "correr",
+      "form": "infinitive"
+    },
+    "crea": {
+      "kind": "verb",
+      "lemma": "creer",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "creas": {
+      "kind": "verb",
+      "lemma": "crear",
+      "form": "tú · present indicative"
+    },
+    "cree": {
+      "kind": "verb",
+      "lemma": "creer",
+      "form": "él/ella/usted · present indicative"
+    },
+    "criamos": {
+      "kind": "verb",
+      "lemma": "criar",
+      "form": "nosotros/as · present indicative"
+    },
+    "criaron": {
+      "kind": "verb",
+      "lemma": "criar",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "cuenta": {
+      "kind": "verb",
+      "lemma": "contar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "cuentas": {
+      "kind": "verb",
+      "lemma": "contar",
+      "form": "tú · present indicative"
+    },
+    "daría": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "él/ella/usted · conditional"
+    },
+    "debe": {
+      "kind": "verb",
+      "lemma": "deber",
+      "form": "él/ella/usted · present indicative"
+    },
+    "decían": {
+      "kind": "verb",
+      "lemma": "decir",
+      "form": "ellos/ellas/ustedes · imperfect"
+    },
+    "dejar": {
+      "kind": "verb",
+      "lemma": "dejar",
+      "form": "infinitive"
+    },
+    "dejo": {
+      "kind": "verb",
+      "lemma": "dejar",
+      "form": "yo · present indicative"
+    },
+    "desaparecí": {
+      "kind": "verb",
+      "lemma": "desaparecer",
+      "form": "yo · preterite"
+    },
+    "despeinar": {
+      "kind": "verb",
+      "lemma": "despeinar",
+      "form": "infinitive"
+    },
+    "despertar": {
+      "kind": "verb",
+      "lemma": "despertar",
+      "form": "infinitive"
+    },
+    "dibujar": {
+      "kind": "verb",
+      "lemma": "dibujar",
+      "form": "infinitive"
+    },
+    "dieron": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "digo": {
+      "kind": "verb",
+      "lemma": "decir",
+      "form": "yo · present indicative"
+    },
+    "dijeron": {
+      "kind": "verb",
+      "lemma": "decir",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "dimos": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "nosotros/as · preterite"
+    },
+    "dio": {
+      "kind": "verb",
+      "lemma": "dar",
+      "form": "él/ella/usted · preterite"
+    },
+    "doler": {
+      "kind": "verb",
+      "lemma": "doler",
+      "form": "infinitive"
+    },
+    "dolió": {
+      "kind": "verb",
+      "lemma": "doler",
+      "form": "él/ella/usted · preterite"
+    },
+    "duele": {
+      "kind": "verb",
+      "lemma": "doler",
+      "form": "él/ella/usted · present indicative"
+    },
+    "durmiendo": {
+      "kind": "verb",
+      "lemma": "dormir",
+      "form": "gerund"
+    },
+    "echó": {
+      "kind": "verb",
+      "lemma": "echar",
+      "form": "él/ella/usted · preterite"
+    },
+    "emocione": {
+      "kind": "verb",
+      "lemma": "emocionar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "empañó": {
+      "kind": "verb",
+      "lemma": "empañar",
+      "form": "él/ella/usted · preterite"
+    },
+    "enamorar": {
+      "kind": "verb",
+      "lemma": "enamorar",
+      "form": "infinitive"
+    },
+    "encanta": {
+      "kind": "verb",
+      "lemma": "encantar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "envía": {
+      "kind": "verb",
+      "lemma": "enviar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "envías": {
+      "kind": "verb",
+      "lemma": "enviar",
+      "form": "tú · present indicative"
+    },
+    "envíe": {
+      "kind": "verb",
+      "lemma": "enviar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "era": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "él/ella/usted · imperfect"
+    },
+    "esconde": {
+      "kind": "verb",
+      "lemma": "esconder",
+      "form": "él/ella/usted · present indicative"
+    },
+    "escribe": {
+      "kind": "verb",
+      "lemma": "escribir",
+      "form": "él/ella/usted · present indicative"
+    },
+    "escribes": {
+      "kind": "verb",
+      "lemma": "escribir",
+      "form": "tú · present indicative"
+    },
+    "escribir": {
+      "kind": "verb",
+      "lemma": "escribir",
+      "form": "infinitive"
+    },
+    "escribo": {
+      "kind": "verb",
+      "lemma": "escribir",
+      "form": "yo · present indicative"
+    },
+    "esperen": {
+      "kind": "verb",
+      "lemma": "esperar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "estacione": {
+      "kind": "verb",
+      "lemma": "estacionar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "estamos": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "nosotros/as · present indicative"
+    },
+    "estando": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "gerund"
+    },
+    "estén": {
+      "kind": "verb",
+      "lemma": "estar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "evita": {
+      "kind": "verb",
+      "lemma": "evitar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "existen": {
+      "kind": "verb",
+      "lemma": "existir",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "expulsen": {
+      "kind": "verb",
+      "lemma": "expulsar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "extrañan": {
+      "kind": "verb",
+      "lemma": "extrañar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "fumando": {
+      "kind": "verb",
+      "lemma": "fumar",
+      "form": "gerund"
+    },
+    "funcionar": {
+      "kind": "verb",
+      "lemma": "funcionar",
+      "form": "infinitive"
+    },
+    "ganaron": {
+      "kind": "verb",
+      "lemma": "ganar",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "golpeó": {
+      "kind": "verb",
+      "lemma": "golpear",
+      "form": "él/ella/usted · preterite"
+    },
+    "gritar": {
+      "kind": "verb",
+      "lemma": "gritar",
+      "form": "infinitive"
+    },
+    "gustar": {
+      "kind": "verb",
+      "lemma": "gustar",
+      "form": "infinitive"
+    },
+    "habla": {
+      "kind": "verb",
+      "lemma": "hablar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "hablaba": {
+      "kind": "verb",
+      "lemma": "hablar",
+      "form": "él/ella/usted · imperfect"
+    },
+    "hablando": {
+      "kind": "verb",
+      "lemma": "hablar",
+      "form": "gerund"
+    },
+    "han": {
+      "kind": "verb",
+      "lemma": "haber",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "hemos": {
+      "kind": "verb",
+      "lemma": "haber",
+      "form": "nosotros/as · present indicative"
+    },
+    "hicieron": {
+      "kind": "verb",
+      "lemma": "hacer",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "imagino": {
+      "kind": "verb",
+      "lemma": "imaginar",
+      "form": "yo · present indicative"
+    },
+    "inventa": {
+      "kind": "verb",
+      "lemma": "inventar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "invitar": {
+      "kind": "verb",
+      "lemma": "invitar",
+      "form": "infinitive"
+    },
+    "invitó": {
+      "kind": "verb",
+      "lemma": "invitar",
+      "form": "él/ella/usted · preterite"
+    },
+    "joder": {
+      "kind": "verb",
+      "lemma": "joder",
+      "form": "infinitive"
+    },
+    "jugando": {
+      "kind": "verb",
+      "lemma": "jugar",
+      "form": "gerund"
+    },
+    "lesionar": {
+      "kind": "verb",
+      "lemma": "lesionar",
+      "form": "infinitive"
+    },
+    "llamas": {
+      "kind": "verb",
+      "lemma": "llamar",
+      "form": "tú · present indicative"
+    },
+    "llamé": {
+      "kind": "verb",
+      "lemma": "llamar",
+      "form": "yo · preterite"
+    },
+    "llamen": {
+      "kind": "verb",
+      "lemma": "llamar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "llegaste": {
+      "kind": "verb",
+      "lemma": "llegar",
+      "form": "tú · preterite"
+    },
+    "llego": {
+      "kind": "verb",
+      "lemma": "llegar",
+      "form": "yo · present indicative"
+    },
+    "llegué": {
+      "kind": "verb",
+      "lemma": "llegar",
+      "form": "yo · preterite"
+    },
+    "llorar": {
+      "kind": "verb",
+      "lemma": "llorar",
+      "form": "infinitive"
+    },
+    "luchando": {
+      "kind": "verb",
+      "lemma": "luchar",
+      "form": "gerund"
+    },
+    "marchó": {
+      "kind": "verb",
+      "lemma": "marchar",
+      "form": "él/ella/usted · preterite"
+    },
+    "marean": {
+      "kind": "verb",
+      "lemma": "marear",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "mataron": {
+      "kind": "verb",
+      "lemma": "matar",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "medir": {
+      "kind": "verb",
+      "lemma": "medir",
+      "form": "infinitive"
+    },
+    "meditar": {
+      "kind": "verb",
+      "lemma": "meditar",
+      "form": "infinitive"
+    },
+    "merece": {
+      "kind": "verb",
+      "lemma": "merecer",
+      "form": "él/ella/usted · present indicative"
+    },
+    "mete": {
+      "kind": "verb",
+      "lemma": "meter",
+      "form": "él/ella/usted · present indicative"
+    },
+    "metí": {
+      "kind": "verb",
+      "lemma": "meter",
+      "form": "yo · preterite"
+    },
+    "midiendo": {
+      "kind": "verb",
+      "lemma": "medir",
+      "form": "gerund"
+    },
+    "mienta": {
+      "kind": "verb",
+      "lemma": "mentar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "mintió": {
+      "kind": "verb",
+      "lemma": "mentir",
+      "form": "él/ella/usted · preterite"
+    },
+    "miraba": {
+      "kind": "verb",
+      "lemma": "mirar",
+      "form": "él/ella/usted · imperfect"
+    },
+    "miré": {
+      "kind": "verb",
+      "lemma": "mirar",
+      "form": "yo · preterite"
+    },
+    "moja": {
+      "kind": "verb",
+      "lemma": "mojar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "molesta": {
+      "kind": "verb",
+      "lemma": "molestar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "montar": {
+      "kind": "verb",
+      "lemma": "montar",
+      "form": "infinitive"
+    },
+    "mostrar": {
+      "kind": "verb",
+      "lemma": "mostrar",
+      "form": "infinitive"
+    },
+    "mueve": {
+      "kind": "verb",
+      "lemma": "mover",
+      "form": "él/ella/usted · present indicative"
+    },
+    "necesito": {
+      "kind": "verb",
+      "lemma": "necesitar",
+      "form": "yo · present indicative"
+    },
+    "note": {
+      "kind": "verb",
+      "lemma": "notar",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "olvidaba": {
+      "kind": "verb",
+      "lemma": "olvidar",
+      "form": "él/ella/usted · imperfect"
+    },
+    "olvidamos": {
+      "kind": "verb",
+      "gloss": "we forgot",
+      "lemma": "olvidar",
+      "form": "nosotros/as · preterite"
+    },
+    "olviden": {
+      "kind": "verb",
+      "lemma": "olvidar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "orando": {
+      "kind": "verb",
+      "lemma": "orar",
+      "form": "gerund"
+    },
+    "parar": {
+      "kind": "verb",
+      "lemma": "parar",
+      "form": "infinitive"
+    },
+    "parecieran": {
+      "kind": "verb",
+      "lemma": "parecer",
+      "form": "ellos/ellas/ustedes · imperfect subjunctive"
+    },
+    "partieron": {
+      "kind": "verb",
+      "lemma": "partir",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "pasa": {
+      "kind": "verb",
+      "lemma": "pasar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "pasando": {
+      "kind": "verb",
+      "lemma": "pasar",
+      "form": "gerund"
+    },
+    "pego": {
+      "kind": "verb",
+      "lemma": "pegar",
+      "form": "yo · present indicative"
+    },
+    "pelear": {
+      "kind": "verb",
+      "lemma": "pelear",
+      "form": "infinitive"
+    },
+    "pensarte": {
+      "kind": "verb",
+      "gloss": "to think of you",
+      "lemma": "pensar",
+      "form": "infinitive + te"
+    },
+    "perdí": {
+      "kind": "verb",
+      "lemma": "perder",
+      "form": "yo · preterite"
+    },
+    "perdido": {
+      "kind": "verb",
+      "lemma": "perder",
+      "form": "past participle"
+    },
+    "piden": {
+      "kind": "verb",
+      "lemma": "pedir",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "piensan": {
+      "kind": "verb",
+      "lemma": "pensar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "ponen": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "poner": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "infinitive"
+    },
+    "pongan": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "pongo": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "yo · present indicative"
+    },
+    "ponía": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "él/ella/usted · imperfect"
+    },
+    "portarse": {
+      "kind": "verb",
+      "gloss": "to behave",
+      "lemma": "portarse",
+      "form": "reflexive infinitive"
+    },
+    "pregunta": {
+      "kind": "verb",
+      "lemma": "preguntar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "preguntando": {
+      "kind": "verb",
+      "lemma": "preguntar",
+      "form": "gerund"
+    },
+    "prendan": {
+      "kind": "verb",
+      "lemma": "prendar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "probando": {
+      "kind": "verb",
+      "lemma": "probar",
+      "form": "gerund"
+    },
+    "prometí": {
+      "kind": "verb",
+      "lemma": "prometer",
+      "form": "yo · preterite"
+    },
+    "prometió": {
+      "kind": "verb",
+      "lemma": "prometer",
+      "form": "él/ella/usted · preterite"
+    },
+    "pueda": {
+      "kind": "verb",
+      "lemma": "poder",
+      "form": "él/ella/usted · present subjunctive"
+    },
+    "pueden": {
+      "kind": "verb",
+      "lemma": "poder",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "pusiste": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "tú · preterite"
+    },
+    "puso": {
+      "kind": "verb",
+      "lemma": "poner",
+      "form": "él/ella/usted · preterite"
+    },
+    "quedarnos": {
+      "kind": "verb",
+      "gloss": "to stay",
+      "lemma": "quedarse",
+      "form": "reflexive infinitive · nosotros/as"
+    },
+    "quedó": {
+      "kind": "verb",
+      "lemma": "quedar",
+      "form": "él/ella/usted · preterite"
+    },
+    "quemar": {
+      "kind": "verb",
+      "lemma": "quemar",
+      "form": "infinitive"
+    },
+    "queremos": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "nosotros/as · present indicative"
+    },
+    "queriendo": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "gerund"
+    },
+    "quise": {
+      "kind": "verb",
+      "lemma": "querer",
+      "form": "yo · preterite"
+    },
+    "quita": {
+      "kind": "verb",
+      "lemma": "quitar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "quitaste": {
+      "kind": "verb",
+      "lemma": "quitar",
+      "form": "tú · preterite"
+    },
+    "quiten": {
+      "kind": "verb",
+      "lemma": "quitar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "quites": {
+      "kind": "verb",
+      "lemma": "quitar",
+      "form": "tú · present subjunctive"
+    },
+    "recoge": {
+      "kind": "verb",
+      "lemma": "recoger",
+      "form": "él/ella/usted · present indicative"
+    },
+    "reconozco": {
+      "kind": "verb",
+      "lemma": "reconocer",
+      "form": "yo · present indicative"
+    },
+    "recordar": {
+      "kind": "verb",
+      "lemma": "recordar",
+      "form": "infinitive"
+    },
+    "recuerden": {
+      "kind": "verb",
+      "lemma": "recordar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "reía": {
+      "kind": "verb",
+      "lemma": "reír",
+      "form": "él/ella/usted · imperfect"
+    },
+    "reír": {
+      "kind": "verb",
+      "lemma": "reír",
+      "form": "infinitive"
+    },
+    "respirar": {
+      "kind": "verb",
+      "lemma": "respirar",
+      "form": "infinitive"
+    },
+    "robamos": {
+      "kind": "verb",
+      "lemma": "robar",
+      "form": "nosotros/as · present indicative"
+    },
+    "rompiendo": {
+      "kind": "verb",
+      "lemma": "romper",
+      "form": "gerund"
+    },
+    "rompieron": {
+      "kind": "verb",
+      "lemma": "romper",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "rompo": {
+      "kind": "verb",
+      "lemma": "romper",
+      "form": "yo · present indicative"
+    },
+    "roncar": {
+      "kind": "verb",
+      "lemma": "roncar",
+      "form": "infinitive"
+    },
+    "ronquen": {
+      "kind": "verb",
+      "lemma": "roncar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "sacar": {
+      "kind": "verb",
+      "lemma": "sacar",
+      "form": "infinitive"
+    },
+    "salen": {
+      "kind": "verb",
+      "lemma": "salir",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "saliendo": {
+      "kind": "verb",
+      "lemma": "salir",
+      "form": "gerund"
+    },
+    "sanar": {
+      "kind": "verb",
+      "lemma": "sanar",
+      "form": "infinitive"
+    },
+    "secar": {
+      "kind": "verb",
+      "lemma": "secar",
+      "form": "infinitive"
+    },
+    "seguir": {
+      "kind": "verb",
+      "lemma": "seguir",
+      "form": "infinitive"
+    },
+    "seguirá": {
+      "kind": "verb",
+      "lemma": "seguir",
+      "form": "él/ella/usted · future"
+    },
+    "sellando": {
+      "kind": "verb",
+      "lemma": "sellar",
+      "form": "gerund"
+    },
+    "sería": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "él/ella/usted · conditional"
+    },
+    "sido": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "past participle"
+    },
+    "siendo": {
+      "kind": "verb",
+      "lemma": "ser",
+      "form": "gerund"
+    },
+    "sienta": {
+      "kind": "verb",
+      "lemma": "sentar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "sientan": {
+      "kind": "verb",
+      "lemma": "sentar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "sigo": {
+      "kind": "verb",
+      "lemma": "seguir",
+      "form": "yo · present indicative"
+    },
+    "sobresalía": {
+      "kind": "verb",
+      "lemma": "sobresalir",
+      "form": "él/ella/usted · imperfect"
+    },
+    "soñamos": {
+      "kind": "verb",
+      "lemma": "soñar",
+      "form": "nosotros/as · present indicative"
+    },
+    "soñarte": {
+      "kind": "verb",
+      "gloss": "to dream of you",
+      "lemma": "soñar",
+      "form": "infinitive + te"
+    },
+    "subió": {
+      "kind": "verb",
+      "lemma": "subir",
+      "form": "él/ella/usted · preterite"
+    },
+    "subir": {
+      "kind": "verb",
+      "lemma": "subir",
+      "form": "infinitive"
+    },
+    "suelo": {
+      "kind": "verb",
+      "gloss": "I usually / I tend to",
+      "lemma": "soler",
+      "form": "yo · present indicative"
+    },
+    "sueltas": {
+      "kind": "verb",
+      "lemma": "soltar",
+      "form": "tú · present indicative"
+    },
+    "suéltate": {
+      "kind": "verb",
+      "gloss": "let yourself go",
+      "lemma": "soltarse",
+      "form": "tú · affirmative command"
+    },
+    "suelten": {
+      "kind": "verb",
+      "lemma": "soltar",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "sueña": {
+      "kind": "verb",
+      "lemma": "soñar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "sufrir": {
+      "kind": "verb",
+      "lemma": "sufrir",
+      "form": "infinitive"
+    },
+    "supe": {
+      "kind": "verb",
+      "lemma": "saber",
+      "form": "yo · preterite"
+    },
+    "tamos": {
+      "kind": "verb",
+      "gloss": "we are",
+      "lemma": "estar",
+      "form": "nosotros/as · present indicative · colloquial estamos"
+    },
+    "tán": {
+      "kind": "verb",
+      "gloss": "they are / you all are",
+      "lemma": "estar",
+      "form": "ellos/ellas/ustedes · present indicative · colloquial están"
+    },
+    "tendrá": {
+      "kind": "verb",
+      "lemma": "tener",
+      "form": "él/ella/usted · future"
+    },
+    "tengamos": {
+      "kind": "verb",
+      "lemma": "tener",
+      "form": "nosotros/as · present subjunctive"
+    },
+    "tenío": {
+      "kind": "verb",
+      "gloss": "had / had been",
+      "lemma": "tener",
+      "form": "past participle · colloquial tenido"
+    },
+    "terminar": {
+      "kind": "verb",
+      "lemma": "terminar",
+      "form": "infinitive"
+    },
+    "tienen": {
+      "kind": "verb",
+      "lemma": "tener",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "tirando": {
+      "kind": "verb",
+      "lemma": "tirar",
+      "form": "gerund"
+    },
+    "tiré": {
+      "kind": "verb",
+      "lemma": "tirar",
+      "form": "yo · preterite"
+    },
+    "toca": {
+      "kind": "verb",
+      "lemma": "tocar",
+      "form": "él/ella/usted · present indicative"
+    },
+    "tocando": {
+      "kind": "verb",
+      "lemma": "tocar",
+      "form": "gerund"
+    },
+    "tocar": {
+      "kind": "verb",
+      "lemma": "tocar",
+      "form": "infinitive"
+    },
+    "tocara": {
+      "kind": "verb",
+      "lemma": "tocar",
+      "form": "él/ella/usted · imperfect subjunctive"
+    },
+    "tocó": {
+      "kind": "verb",
+      "lemma": "tocar",
+      "form": "él/ella/usted · preterite"
+    },
+    "trabajando": {
+      "kind": "verb",
+      "lemma": "trabajar",
+      "form": "gerund"
+    },
+    "traigan": {
+      "kind": "verb",
+      "lemma": "traer",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "trancaste": {
+      "kind": "verb",
+      "lemma": "trancar",
+      "form": "tú · preterite"
+    },
+    "tratan": {
+      "kind": "verb",
+      "lemma": "tratar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "vale": {
+      "kind": "verb",
+      "lemma": "valer",
+      "form": "él/ella/usted · present indicative"
+    },
+    "valgan": {
+      "kind": "verb",
+      "lemma": "valer",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "vayan": {
+      "kind": "verb",
+      "lemma": "ir",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "vean": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "ellos/ellas/ustedes · present subjunctive"
+    },
+    "venció": {
+      "kind": "verb",
+      "lemma": "vencer",
+      "form": "él/ella/usted · preterite"
+    },
+    "vendiendo": {
+      "kind": "verb",
+      "lemma": "vender",
+      "form": "gerund"
+    },
+    "vengan": {
+      "kind": "verb",
+      "lemma": "vengar",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "venía": {
+      "kind": "verb",
+      "lemma": "venir",
+      "form": "él/ella/usted · imperfect"
+    },
+    "veremos": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "nosotros/as · future"
+    },
+    "verte": {
+      "kind": "verb",
+      "gloss": "to see you",
+      "lemma": "ver",
+      "form": "infinitive + te"
+    },
+    "viene": {
+      "kind": "verb",
+      "lemma": "venir",
+      "form": "él/ella/usted · present indicative"
+    },
+    "vienen": {
+      "kind": "verb",
+      "lemma": "venir",
+      "form": "ellos/ellas/ustedes · present indicative"
+    },
+    "vieron": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "vino": {
+      "kind": "mixed",
+      "gloss": "wine / he or she came",
+      "lemma": "venir",
+      "form": "masculine noun / él/ella/usted · preterite"
+    },
+    "visto": {
+      "kind": "verb",
+      "lemma": "ver",
+      "form": "past participle"
+    },
+    "vivía": {
+      "kind": "verb",
+      "lemma": "vivir",
+      "form": "él/ella/usted · imperfect"
+    },
+    "vivieron": {
+      "kind": "verb",
+      "lemma": "vivir",
+      "form": "ellos/ellas/ustedes · preterite"
+    },
+    "voa": {
+      "kind": "verb",
+      "gloss": "I’m going to",
+      "lemma": "ir",
+      "form": "yo · present indicative · colloquial voy a"
+    },
+    "volvemo": {
+      "kind": "verb",
+      "gloss": "we return / we come back",
+      "lemma": "volver",
+      "form": "nosotros/as · present indicative · colloquial volvemos"
+    }
+  }
+}
