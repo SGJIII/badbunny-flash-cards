@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -41,6 +42,7 @@ textarea {
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 button:focus-visible,
@@ -64,6 +66,7 @@ input:focus-visible {
 
 .app-shell {
   min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   background:
     radial-gradient(circle at 76% 0%, rgba(233, 87, 42, 0.08), transparent 26rem),
@@ -1911,6 +1914,348 @@ input:focus-visible {
   .word-row {
     grid-template-columns: 38px minmax(90px, 0.8fr) minmax(120px, 1.2fr) 28px;
     gap: 7px;
+  }
+}
+
+/* iPhone 13 mini and similarly sized phones (375 × 812 CSS pixels). */
+@media (max-width: 430px) {
+  .topbar {
+    height: calc(54px + env(safe-area-inset-top));
+    padding-top: env(safe-area-inset-top);
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-left: max(12px, env(safe-area-inset-left));
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 15px;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-button,
+  .close-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .workspace {
+    min-height: calc(100dvh - 54px - env(safe-area-inset-top));
+  }
+
+  .sidebar {
+    padding: 8px max(12px, env(safe-area-inset-right)) 10px max(12px, env(safe-area-inset-left));
+  }
+
+  .track-picker {
+    margin-bottom: 8px;
+    padding: 9px 10px;
+    gap: 6px;
+  }
+
+  .track-picker label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .track-picker label > span {
+    margin-bottom: 0;
+    font-size: 8px;
+  }
+
+  .track-picker label > strong {
+    flex: 1;
+    overflow: hidden;
+    font-size: 15px;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .track-select-wrap {
+    height: 44px;
+    margin-top: 0;
+  }
+
+  .track-select-wrap select,
+  .search-box input,
+  .report-dialog input,
+  .report-dialog select,
+  .report-dialog textarea {
+    font-size: 16px;
+  }
+
+  .track-picker > p {
+    display: none;
+  }
+
+  .deck-nav {
+    margin-inline: -12px;
+    padding-inline: 12px;
+    scroll-padding-inline: 12px;
+  }
+
+  .deck-link {
+    min-height: 44px;
+    padding-inline: 14px;
+    scroll-snap-align: start;
+  }
+
+  .report-queue-button {
+    min-height: 44px;
+    margin-top: 8px;
+  }
+
+  .study-area {
+    padding: 14px max(12px, env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  }
+
+  .study-heading {
+    gap: 8px;
+  }
+
+  .study-heading .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.13em;
+  }
+
+  .study-heading h1 {
+    margin-top: 5px;
+    font-size: 25px;
+    line-height: 0.96;
+  }
+
+  .session-meta {
+    min-width: 52px;
+    padding-top: 2px;
+  }
+
+  .session-meta strong {
+    font-size: 16px;
+  }
+
+  .direction-control {
+    margin-top: 10px;
+  }
+
+  .direction-control > span {
+    display: none;
+  }
+
+  .direction-control > div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .direction-control button {
+    min-width: 0;
+    min-height: 38px;
+    padding: 7px 8px;
+    font-size: 11px;
+  }
+
+  .round-status {
+    margin-top: 10px;
+    gap: 6px 10px;
+  }
+
+  .round-status > div:first-child {
+    gap: 5px;
+  }
+
+  .round-status span {
+    font-size: 8px;
+  }
+
+  .wrong-pile {
+    min-height: 36px;
+    padding: 5px 9px;
+  }
+
+  .card-stage {
+    height: 320px;
+    margin: 10px auto 8px;
+  }
+
+  .sun-shape {
+    width: 208px;
+    height: 208px;
+    top: 48px;
+    right: -48px;
+  }
+
+  .flashcard {
+    width: min(calc(100vw - 38px), 344px);
+    height: 286px;
+    transform: rotate(-1deg);
+  }
+
+  .card-face {
+    padding: 24px 18px 22px;
+    border-radius: 17px;
+    box-shadow: 0 18px 0 -8px rgba(24, 63, 50, 0.96), 0 25px 30px rgba(19, 36, 29, 0.17);
+  }
+
+  .card-back {
+    box-shadow: 0 18px 0 -8px rgba(233, 87, 42, 0.96), 0 25px 30px rgba(19, 36, 29, 0.17);
+  }
+
+  .card-face::after {
+    inset: 9px;
+  }
+
+  .card-topline {
+    top: 20px;
+    right: 22px;
+    left: 22px;
+    font-size: 8px;
+  }
+
+  .term {
+    max-width: 94%;
+    font-size: clamp(42px, 15vw, 62px);
+  }
+
+  .term.is-english-prompt {
+    max-width: 92%;
+    font-size: clamp(29px, 10vw, 40px);
+  }
+
+  .meaning,
+  .meaning.has-context,
+  .meaning.is-spanish-answer {
+    max-width: 94%;
+    font-size: clamp(27px, 9vw, 38px);
+  }
+
+  .meaning.has-grammar,
+  .meaning.has-context.has-grammar,
+  .meaning.is-spanish-answer.has-grammar {
+    max-width: 94%;
+    font-size: clamp(24px, 8vw, 33px);
+  }
+
+  .usage-context {
+    max-width: 94%;
+    margin-top: 8px;
+    padding-top: 7px;
+  }
+
+  .usage-context > span {
+    font-size: 7px;
+  }
+
+  .usage-context small {
+    font-size: 10px;
+    line-height: 1.28;
+  }
+
+  .grammar-panel {
+    max-width: 94%;
+    margin-top: 8px;
+    padding: 6px 8px;
+    gap: 2px 6px;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .grammar-kicker,
+  .grammar-panel small {
+    font-size: 7px;
+  }
+
+  .grammar-panel strong {
+    font-size: 14px;
+  }
+
+  .flip-hint {
+    bottom: 20px;
+    font-size: 9px;
+  }
+
+  .round-action {
+    width: 44px;
+    height: 44px;
+  }
+
+  .listen-action,
+  .report-action {
+    bottom: 10px;
+  }
+
+  .save-action {
+    top: 30px;
+  }
+
+  .word-context {
+    margin: -2px auto 10px;
+    gap: 0;
+    font-size: 10px;
+  }
+
+  .context-number {
+    font-size: 21px;
+  }
+
+  .example-credit {
+    margin: -5px auto 10px;
+    font-size: 8px;
+  }
+
+  .rating-row {
+    position: sticky;
+    z-index: 30;
+    bottom: calc(8px + env(safe-area-inset-bottom));
+    gap: 8px;
+    padding: 6px;
+    border: 1px solid rgba(19, 36, 29, 0.12);
+    border-radius: 14px;
+    background: rgba(243, 235, 221, 0.9);
+    box-shadow: 0 10px 34px rgba(19, 36, 29, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .rating-row button {
+    min-height: 56px;
+    border-radius: 9px;
+  }
+
+  .rating-row strong {
+    align-self: center;
+    font-size: 14px;
+  }
+
+  .album-strip {
+    padding-right: max(18px, env(safe-area-inset-right));
+    padding-bottom: calc(36px + env(safe-area-inset-bottom));
+    padding-left: max(18px, env(safe-area-inset-left));
+  }
+
+  .browse-sheet {
+    padding-top: max(16px, env(safe-area-inset-top));
+    padding-right: max(14px, env(safe-area-inset-right));
+    padding-bottom: calc(18px + env(safe-area-inset-bottom));
+    padding-left: max(14px, env(safe-area-inset-left));
+  }
+
+  .report-backdrop {
+    padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) 0 max(8px, env(safe-area-inset-left));
+  }
+
+  .report-dialog {
+    max-height: calc(100dvh - max(8px, env(safe-area-inset-top)));
+    padding-bottom: calc(18px + env(safe-area-inset-bottom));
+  }
+
+  .report-toast {
+    bottom: calc(16px + env(safe-area-inset-bottom));
   }
 }
 

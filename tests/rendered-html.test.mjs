@@ -60,12 +60,14 @@ test("ships a complete, deduplicated vocabulary-only dataset", async () => {
   assert.equal(data.words.find((word) => word.term === "fotito").meaning, "little photo / cute little photo");
 });
 
-test("removes the disposable starter and includes Netlify output config", async () => {
+test("removes the disposable starter and includes Netlify and small-phone output config", async () => {
   await assert.rejects(access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
-  const [packageJson, netlify, page] = await Promise.all([
+  const [packageJson, netlify, page, css, layout] = await Promise.all([
     readFile(new URL("../package.json", import.meta.url), "utf8"),
     readFile(new URL("../netlify.toml", import.meta.url), "utf8"),
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.doesNotMatch(packageJson, /react-loading-skeleton|vinext|wrangler|cloudflare/i);
@@ -94,4 +96,10 @@ test("removes the disposable starter and includes Netlify output config", async 
   assert.match(page, /That dance is one I’ll never forget\./);
   assert.match(page, /She sent me a cute little photo before the party\./);
   assert.doesNotMatch(page, /HOW IT’S USED · PARAPHRASED|here it means|carries the sense/);
+  assert.match(layout, /viewportFit: "cover"/);
+  assert.match(css, /iPhone 13 mini/);
+  assert.match(css, /@media \(max-width: 430px\)/);
+  assert.match(css, /env\(safe-area-inset-bottom\)/);
+  assert.match(css, /min-height: 100dvh/);
+  assert.match(css, /position: sticky/);
 });
