@@ -33,6 +33,26 @@ type CardReport = {
   status: "open" | "resolved";
   delivery: "local" | "submitted";
 };
+type SentenceExample = {
+  text: string;
+  sentenceId: number;
+  owner: string;
+  license: string;
+};
+type TatoebaSentence = {
+  id: number;
+  text: string;
+  is_unapproved: boolean;
+  translations: Array<{
+    id: number;
+    text: string;
+    lang: string;
+    license: string;
+    owner: string | null;
+    is_unapproved: boolean;
+    is_direct: boolean;
+  }>;
+};
 
 const DATA = vocabularyData;
 const WORDS = DATA.words;
@@ -61,6 +81,153 @@ const MODE_LABELS: Record<Mode, string> = {
   track: "Canción",
   saved: "Guardadas",
   learning: "Aprendiendo",
+};
+
+const ENGLISH_EXAMPLE_SENTENCES: Record<string, string> = {
+  que: "I know that you still think about that night.",
+  y: "You and I danced until the sun came up.",
+  la: "The photo is still saved on my phone.",
+  a: "I went to the party just to see you.",
+  te: "I sent you a message after midnight.",
+  no: "I’m not ready for the night to end.",
+  me: "Tell me you remember that song too.",
+  yo: "I stayed until the last song finished.",
+  tú: "You were the first person I looked for.",
+  de: "That photo of us still makes me smile.",
+  en: "We met again in the same old place.",
+  el: "The music got louder when you walked in.",
+  si: "If you call me, I’ll come back tonight.",
+  lo: "I remember it like it happened yesterday.",
+  pa: "I saved this dance for you.",
+  se: "She left before anyone noticed.",
+  ey: "Hey, come dance with me.",
+  un: "I waited for a message that never came.",
+  ve: "Go see whether they’re still outside.",
+  con: "I want to spend one more night with you.",
+  eh: "Hey, I thought I saw you by the door.",
+  los: "The memories came back with the music.",
+  baby: "Baby, stay with me until the song ends.",
+  es: "It is the song that always brings me back.",
+  por: "I came back for one last dance.",
+  mi: "My favorite photo is still the one of us.",
+  ya: "I already know how this night will end.",
+  pero: "I tried to leave, but our song came on.",
+  vamo: "Let’s go before the party ends.",
+  bien: "I’m doing well, even though I still miss you.",
+  las: "The lights came on before we stopped dancing.",
+  como: "Dance like nobody is watching.",
+  va: "She is going wherever the music takes her.",
+  hoy: "Today I finally deleted your old message.",
+  mami: "Baby, you know I saved this dance for you.",
+  una: "We shared a night I’ll never forget.",
+  le: "I gave her the photo before I left.",
+  tu: "Your voice still sounds the same on that recording.",
+  "vo'a": "I’m going to dance until the club closes.",
+  qué: "What are you doing after the party?",
+  estoy: "I am still here, listening to our song.",
+  más: "I wanted one more night with you.",
+  aquí: "I’ll be here if you decide to come back.",
+  mí: "You saved the last dance for me.",
+  ahora: "Now the whole night feels like a memory.",
+  cuando: "Call me when you hear our song.",
+  ver: "I went back to see if you were there.",
+  así: "Hold me like this until the music stops.",
+  cómo: "I still remember how you used to dance.",
+  día: "That was the day everything changed.",
+  nos: "The music took us back to that summer.",
+  ni: "I didn’t even notice the sun coming up.",
+  solo: "I danced alone after everyone went home.",
+  nadie: "No one knew where we had gone.",
+  sé: "I know this song still makes you think of me.",
+  soy: "I am the same person you met that summer.",
+  está: "The party is still going downstairs.",
+  otra: "Play another song before we leave.",
+  porque: "I came back because I wanted to see you.",
+  quiero: "I want one more dance before you go.",
+  ven: "Come dance with me before the night ends.",
+  voy: "I’m going wherever the night takes me.",
+  hace: "We met here a long time ago.",
+  na: "Nothing felt the same after you left.",
+  sí: "Yes, I still remember our last night together.",
+  tengo: "I have your old photo in my wallet.",
+  verdá: "You still miss those nights, right?",
+  vida: "Life felt easier when we danced together.",
+  calle: "The music followed us into the street.",
+  hay: "There is one song I still can’t forget.",
+  loco: "The whole night felt crazy and beautiful.",
+  ser: "I just wanted to be close to you again.",
+  ahí: "I left your photo right there on the table.",
+  dale: "Come on, the night is just getting started.",
+  estás: "You are exactly where I hoped you’d be.",
+  hasta: "We danced until the lights came on.",
+  nuevo: "That new song made the room come alive.",
+  puedo: "I can still remember every word you said.",
+  siempre: "I’ll always remember the way you danced.",
+  también: "I miss those nights too.",
+  tiene: "She has the photo we took that night.",
+  to: "I gave you everything I had.",
+  cabrón: "That dude still thinks he owns the dance floor.",
+  contigo: "I would stay here all night with you.",
+  eso: "That is the moment I keep thinking about.",
+  fue: "It was the best night of that summer.",
+  nunca: "I never forgot the way you looked at me.",
+  o: "We can stay here or leave together.",
+  quieres: "Do you want to dance one more time?",
+  son: "They are the friends who stayed until sunrise.",
+  toy: "I’m outside, waiting by the car.",
+  dime: "Tell me where you want to go tonight.",
+  fuiste: "You were the reason I came to the party.",
+  perreo: "That reggaetón dance kept the whole room moving.",
+  perreá: "Dance reggaetón with me before the DJ changes the song.",
+  bellaquita: "That flirty girl took over the dance floor.",
+  "pa'cá": "Come over here so I can hear you.",
+  "pa'l": "We’re heading to the club after midnight.",
+  papi: "Baby, come closer before the song ends.",
+  perreando: "We spent the whole night dancing reggaetón.",
+  "to'l": "The whole club sang along with the chorus.",
+  acho: "Man, I still can’t believe that happened.",
+  chamaquito: "That young guy knows every song the DJ plays.",
+  nena: "Babe, save the last dance for me.",
+  perrear: "We came here to dance reggaetón until sunrise.",
+  bellaca: "She felt worked up when the beat dropped.",
+  bellaqueo: "Their flirting got bolder as the night went on.",
+  culito: "He couldn’t stop talking about that cute little ass.",
+  janguear: "We should hang out after the party.",
+  nene: "Babe, call me when you get home.",
+  "pa'llá": "Let’s go over there where the music is louder.",
+  "pa'trá": "Move back before the crowd closes in.",
+  perico: "He swore the bag held cocaine, not anything harmless.",
+  pitorro: "They passed around Puerto Rican moonshine at the party.",
+  sobeteo: "She was tired of all the unwanted touching in the club.",
+  vámono: "Let’s go before the sun comes up.",
+  vírate: "Turn around and look at me when I’m talking to you.",
+  bellaqueando: "They kept flirting and dancing close all night.",
+  bicho: "That dude talks big whenever his crew is around.",
+  bichote: "The big shot arrived with his whole crew.",
+  cabrona: "She walked in like a total badass.",
+  chinchorrear: "We spent Sunday bar-hopping around the island.",
+  "chinga'o": "The whole situation was completely messed up.",
+  chingando: "They were having sex while everyone else was out.",
+  chingar: "They left the party early to have sex.",
+  chulería: "Her outfit was pure Caribbean coolness.",
+  jangueando: "We were hanging out when our old song came on.",
+  pal: "This song is for the people who stayed.",
+  puñeta: "Damn, that song still hits me every time.",
+  ella: "She danced as if no one else was there.",
+  noche: "That night still feels like yesterday.",
+  bailar: "We went out to dance and forgot the time.",
+  escuchando: "We stayed up listening to the songs you loved.",
+  triste: "The apartment felt sad and quiet after you left.",
+  bebé: "Baby, don’t leave before our song ends.",
+  bebiendo: "They kept drinking while the music played.",
+  beso: "I still remember our first kiss.",
+  bonita: "You looked beautiful under the club lights.",
+  casa: "I didn’t want to go home without you.",
+  bailo: "I dance whenever that song comes on.",
+  baile: "That dance is one I’ll never forget.",
+  bailando: "We kept dancing until the lights came on.",
+  corillo: "My crew is waiting outside, so let’s go.",
+  fotito: "She sent me a cute little photo before the party.",
 };
 
 function shuffled(values: number[]) {
@@ -101,31 +268,16 @@ function makeQueue(mode: Mode, progress: ProgressMap, trackId = 0, leadId?: numb
   return randomized;
 }
 
-function englishUsageContext(
-  word: WordCard,
-  grammar: GrammarEntry | undefined,
-  trackTitle: string | undefined,
-) {
-  const where = trackTitle ? `In “${trackTitle},”` : "On the album,";
-  const meaning = grammar?.gloss ?? word.meaning;
-  const form = grammar?.form.replaceAll(" · ", ", ");
+function englishExampleSentence(word: WordCard, grammar: GrammarEntry | undefined) {
+  const curated = ENGLISH_EXAMPLE_SENTENCES[word.term];
+  if (curated) return curated;
 
-  if (word.term === "fotito") {
-    return `${where} “fotito” is a diminutive of foto: literally “little photo,” often with an affectionate “cute little photo” tone.`;
-  }
-  if (grammar?.kind === "verb") {
-    return `${where} “${word.term}” is the ${form} form${grammar.lemma ? ` of ${grammar.lemma}` : ""}; here it means “${meaning}.”`;
-  }
-  if (grammar?.kind === "noun") {
-    return `${where} “${word.term}” functions as a ${form} and means “${meaning}.”`;
-  }
-  if (grammar?.kind === "mixed") {
-    return `${where} “${word.term}” is used as ${form}; in this context it means “${meaning}.”`;
-  }
-  if (word.category === "slang") {
-    return `${where} “${word.term}” is Puerto Rican or Caribbean slang meaning “${meaning}.”`;
-  }
-  return `${where} “${word.term}” carries the sense “${meaning}.”`;
+  const meaning = (grammar?.gloss ?? word.meaning)
+    .split(" / ")[0]
+    .replace(/\s*\([^)]*\)\s*/g, " ")
+    .trim();
+  const capitalizedMeaning = meaning.charAt(0).toLocaleUpperCase("en") + meaning.slice(1);
+  return `The phrase “${capitalizedMeaning}” stayed with me after the music stopped.`;
 }
 
 function Icon({ children }: { children: React.ReactNode }) {
@@ -155,6 +307,7 @@ export default function Home() {
   const [reportIssue, setReportIssue] = useState<IssueKind>("translation");
   const [reportNote, setReportNote] = useState("");
   const [reportNotice, setReportNotice] = useState("");
+  const [sentenceExamples, setSentenceExamples] = useState<Record<string, SentenceExample | null>>({});
 
   useEffect(() => {
     try {
@@ -222,6 +375,53 @@ export default function Home() {
   const currentProgress = currentWord ? progress[currentWord.term] : undefined;
   const currentGrammar = currentWord ? GRAMMAR[currentWord.term] : undefined;
   const currentMeaning = currentGrammar?.gloss ?? currentWord?.meaning ?? "";
+
+  useEffect(() => {
+    if (!currentWord || ENGLISH_EXAMPLE_SENTENCES[currentWord.term]) return;
+    if (Object.prototype.hasOwnProperty.call(sentenceExamples, currentWord.term)) return;
+
+    const term = currentWord.term;
+    const controller = new AbortController();
+    const params = new URLSearchParams({
+      lang: "spa",
+      q: `=${term}`,
+      "trans:lang": "eng",
+      sort: "relevance",
+      limit: "8",
+    });
+
+    fetch(`https://api.tatoeba.org/v1/sentences?${params.toString()}`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error("Sentence lookup failed");
+        return response.json() as Promise<{ data: TatoebaSentence[] }>;
+      })
+      .then(({ data }) => {
+        const candidates = data
+          .filter((sentence) => !sentence.is_unapproved)
+          .flatMap((sentence) => sentence.translations
+            .filter((translation) => translation.lang === "eng" && !translation.is_unapproved)
+            .map((translation) => ({ sentence, translation })))
+          .filter(({ translation }) => translation.text.length >= 6 && translation.text.length <= 150)
+          .sort((left, right) => Number(right.translation.is_direct) - Number(left.translation.is_direct)
+            || left.translation.text.length - right.translation.text.length);
+        const match = candidates[0];
+        const example = match
+          ? {
+              text: match.translation.text,
+              sentenceId: match.translation.id,
+              owner: match.translation.owner ?? "Tatoeba contributor",
+              license: match.translation.license,
+            }
+          : null;
+        setSentenceExamples((previous) => ({ ...previous, [term]: example }));
+      })
+      .catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setSentenceExamples((previous) => ({ ...previous, [term]: null }));
+      });
+
+    return () => controller.abort();
+  }, [currentWord, sentenceExamples]);
 
   const counts = useMemo(() => {
     let mastered = 0;
@@ -498,11 +698,15 @@ export default function Home() {
       : `${MODE_LABELS[mode]} · ${selectedTrack.title}`
     : MODE_LABELS[mode];
   const englishFirst = studyDirection === "english-first";
-  const contextTrack = selectedTrack && currentWord?.tracks.includes(selectedTrack.id)
-    ? selectedTrack
-    : relatedTracks[0];
-  const usageContext = currentWord
-    ? englishUsageContext(currentWord, currentGrammar, contextTrack?.title)
+  const fetchedExample = currentWord ? sentenceExamples[currentWord.term] : undefined;
+  const exampleSentence = fetchedExample?.text ?? (currentWord
+    ? englishExampleSentence(currentWord, currentGrammar)
+    : "");
+  const exampleSource = fetchedExample
+    ? {
+        href: `https://tatoeba.org/en/sentences/show/${fetchedExample.sentenceId}`,
+        label: `${fetchedExample.owner} · Tatoeba · ${fetchedExample.license}`,
+      }
     : "";
   const frontText = englishFirst ? currentMeaning : currentWord?.term ?? "";
   const backText = englishFirst ? currentWord?.term ?? "" : currentMeaning;
@@ -688,7 +892,7 @@ export default function Home() {
                   className={`flashcard ${flipped ? "is-flipped" : ""}`}
                   onClick={() => setFlipped((value) => !value)}
                   aria-label={flipped
-                    ? `${englishFirst ? "Spanish" : "English"}: ${backText}. ${usageContext}. Flip back.`
+                    ? `${englishFirst ? "Spanish" : "English"}: ${backText}. Example: ${exampleSentence}. Flip back.`
                     : `${englishFirst ? "English" : "Spanish"}: ${frontText}. Flip for the answer.`}
                   aria-pressed={flipped}
                 >
@@ -716,8 +920,8 @@ export default function Home() {
                       </span>
                       <span className={`meaning has-context ${currentGrammar ? "has-grammar" : ""} ${englishFirst ? "is-spanish-answer" : ""}`}>{backText}</span>
                       <span className="usage-context">
-                        <span>HOW IT’S USED · PARAPHRASED</span>
-                        <small>{usageContext}</small>
+                        <span>IN A SENTENCE · ENGLISH</span>
+                        <small>{exampleSentence}</small>
                       </span>
                       {currentGrammar && (
                         <span className={`grammar-panel is-${currentGrammar.kind}`}>
@@ -766,6 +970,12 @@ export default function Home() {
                   {relatedTracks.length > 3 ? ` · +${relatedTracks.length - 3}` : ""}
                 </p>
               </div>
+
+              {exampleSource && (
+                <a className="example-credit" href={exampleSource.href} target="_blank" rel="noreferrer">
+                  Example by {exampleSource.label}
+                </a>
+              )}
 
               <div className="rating-row" aria-label="Mark this answer wrong or right">
                 <button type="button" className="wrong-button" onClick={() => answerWord(false)}>

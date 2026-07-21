@@ -27,6 +27,8 @@ test("server-renders the finished study experience", async () => {
   assert.match(html, /Reportes pendientes/);
   assert.match(html, /FRENTE DE LA TARJETA/);
   assert.match(html, /English/);
+  assert.match(html, /IN A SENTENCE · ENGLISH/);
+  assert.match(html, /My crew is waiting outside, so let’s go\./);
   assert.match(html, /name="card-report"/);
   assert.match(html, /data-netlify="true"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
@@ -83,6 +85,13 @@ test("removes the disposable starter and includes Netlify output config", async 
   assert.match(page, /idsForMode\(item, progress, selectedTrackId\)\.length/);
   assert.match(page, /Todo el álbum/);
   assert.match(page, /english-first/);
-  assert.match(page, /HOW IT’S USED · PARAPHRASED/);
-  assert.match(page, /englishUsageContext/);
+  assert.match(page, /IN A SENTENCE · ENGLISH/);
+  assert.match(page, /englishExampleSentence/);
+  assert.match(page, /api\.tatoeba\.org\/v1\/sentences/);
+  assert.match(page, /q: `=\$\{term\}`/);
+  assert.match(page, /Example by/);
+  assert.match(page, /I dance whenever that song comes on\./);
+  assert.match(page, /That dance is one I’ll never forget\./);
+  assert.match(page, /She sent me a cute little photo before the party\./);
+  assert.doesNotMatch(page, /HOW IT’S USED · PARAPHRASED|here it means|carries the sense/);
 });
