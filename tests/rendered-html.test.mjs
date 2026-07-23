@@ -30,6 +30,8 @@ test("server-renders the finished study experience", async () => {
   assert.match(html, /EN UNA ORACIÓN · SPANISH → ENGLISH/);
   assert.match(html, /Mi corillo está afuera; vámonos\./);
   assert.match(html, /My crew is waiting outside, so let’s go\./);
+  assert.match(html, /Ver cómo aparece en[\s\S]*VOY A LLeVARTE PA PR/);
+  assert.match(html, /https:\/\/genius\.com\/Bad-bunny-voy-a-llevarte-pa-pr-lyrics/);
   assert.match(html, /name="card-report"/);
   assert.match(html, /data-netlify="true"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
@@ -84,12 +86,14 @@ test("ships a complete, deduplicated vocabulary-only dataset", async () => {
 
 test("removes the disposable starter and includes Netlify and small-phone output config", async () => {
   await assert.rejects(access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
-  const [packageJson, netlify, page, css, layout] = await Promise.all([
+  const [packageJson, netlify, page, css, layout, robotsSource, robotsOutput] = await Promise.all([
     readFile(new URL("../package.json", import.meta.url), "utf8"),
     readFile(new URL("../netlify.toml", import.meta.url), "utf8"),
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/robots.ts", import.meta.url), "utf8"),
+    readFile(new URL("../out/robots.txt", import.meta.url), "utf8"),
   ]);
 
   assert.doesNotMatch(packageJson, /react-loading-skeleton|vinext|wrangler|cloudflare/i);
@@ -117,7 +121,10 @@ test("removes the disposable starter and includes Netlify and small-phone output
   assert.match(page, /name="exampleEnglish"/);
   assert.match(page, /api\.tatoeba\.org\/v1\/sentences/);
   assert.match(page, /q: `=\$\{term\}`/);
-  assert.match(page, /Example by/);
+  assert.match(page, /GENIUS_TRACK_URLS/);
+  assert.equal((page.match(/https:\/\/genius\.com\/Bad-bunny/g) ?? []).length, 17);
+  assert.match(page, /Ver cómo aparece en/);
+  assert.match(page, /Ejemplo por/);
   assert.match(page, /I dance whenever that song comes on\./);
   assert.match(page, /That dance is one I’ll never forget\./);
   assert.match(page, /She sent me a cute little photo before the party\./);
@@ -133,10 +140,16 @@ test("removes the disposable starter and includes Netlify and small-phone output
   assert.match(page, /097c1508-235a-457d-afd1-00b078e3f1bb/);
   assert.doesNotMatch(page, /HOW IT’S USED · PARAPHRASED|here it means|carries the sense/);
   assert.doesNotMatch(page, /englishExampleSentence|The phrase “/);
+  assert.match(layout, /index: false/);
+  assert.match(layout, /follow: false/);
   assert.match(layout, /viewportFit: "cover"/);
+  assert.match(robotsSource, /disallow: "\/"/);
+  assert.match(robotsOutput, /Disallow: \//);
+  assert.match(netlify, /X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet, noimageindex"/);
   assert.match(css, /iPhone 13 mini/);
   assert.match(css, /@media \(max-width: 430px\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
   assert.match(css, /min-height: 100dvh/);
   assert.match(css, /position: sticky/);
+  assert.match(css, /\.lyrics-link/);
 });

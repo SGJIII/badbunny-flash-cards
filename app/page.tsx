@@ -86,6 +86,25 @@ const RESOLVED_REPORT_IDS = new Set([
   "e5ab0c43-7f96-477c-8229-add4d6f35727",
   "097c1508-235a-457d-afd1-00b078e3f1bb",
 ]);
+const GENIUS_TRACK_URLS: Record<number, string> = {
+  1: "https://genius.com/Bad-bunny-nuevayol-lyrics",
+  2: "https://genius.com/Bad-bunny-voy-a-llevarte-pa-pr-lyrics",
+  3: "https://genius.com/Bad-bunny-baile-inolvidable-lyrics",
+  4: "https://genius.com/Bad-bunny-and-rainao-perfumito-nuevo-lyrics",
+  5: "https://genius.com/Bad-bunny-and-chuwi-weltita-lyrics",
+  6: "https://genius.com/Bad-bunny-omar-courtz-and-dei-v-velda-lyrics",
+  7: "https://genius.com/Bad-bunny-el-club-lyrics",
+  8: "https://genius.com/Bad-bunny-ketu-tecre-lyrics",
+  9: "https://genius.com/Bad-bunny-bokete-lyrics",
+  10: "https://genius.com/Bad-bunny-kloufrens-lyrics",
+  11: "https://genius.com/Bad-bunny-turista-lyrics",
+  12: "https://genius.com/Bad-bunny-and-los-pleneros-de-la-cresta-cafe-con-ron-lyrics",
+  13: "https://genius.com/Bad-bunny-pitorro-de-coco-lyrics",
+  14: "https://genius.com/Bad-bunny-lo-que-le-paso-a-hawaii-lyrics",
+  15: "https://genius.com/Bad-bunny-eoo-lyrics",
+  16: "https://genius.com/Bad-bunny-dtmf-lyrics",
+  17: "https://genius.com/Bad-bunny-la-mudanza-lyrics",
+};
 
 const ISSUE_LABELS: Record<IssueKind, string> = {
   translation: "Traducción incorrecta",
@@ -806,6 +825,8 @@ export default function Home() {
         label: `${fetchedExample.sourceOwner} + ${fetchedExample.translationOwner} · Tatoeba · ${fetchedExample.sourceLicense} / ${fetchedExample.translationLicense}`,
       }
     : "";
+  const contextTrack = relatedTracks.find((track) => track.id === selectedTrackId) ?? relatedTracks[0];
+  const geniusTrackUrl = contextTrack ? GENIUS_TRACK_URLS[contextTrack.id] : undefined;
   const frontText = englishFirst ? currentMeaning : currentWord?.term ?? "";
   const backText = englishFirst ? currentWord?.term ?? "" : currentMeaning;
   const deckPosition = queue.length ? queueIndex + 1 : 0;
@@ -914,7 +935,7 @@ export default function Home() {
 
           <div className="source-note">
             <p className="eyebrow">HECHO PARA ESCUCHAR</p>
-            <p>Datos de 17 canciones, con {VERB_WORD_COUNT} formas verbales anotadas. Letras completas no incluidas.</p>
+            <p>Datos de 17 canciones, con {VERB_WORD_COUNT} formas verbales anotadas. Contexto real enlazado; letras completas no alojadas.</p>
           </div>
         </aside>
 
@@ -1080,11 +1101,20 @@ export default function Home() {
                 </p>
               </div>
 
-              {exampleSource && (
-                <a className="example-credit" href={exampleSource.href} target="_blank" rel="noreferrer">
-                  Example by {exampleSource.label}
-                </a>
-              )}
+              <div className="source-links">
+                {geniusTrackUrl && contextTrack && (
+                  <a className="lyrics-link" href={geniusTrackUrl} target="_blank" rel="noreferrer noopener nofollow">
+                    <span>CONTEXTO REAL</span>
+                    <strong>Ver cómo aparece en {contextTrack.title}</strong>
+                    <small>Genius ↗</small>
+                  </a>
+                )}
+                {exampleSource && (
+                  <a className="example-credit" href={exampleSource.href} target="_blank" rel="noreferrer">
+                    Ejemplo por {exampleSource.label}
+                  </a>
+                )}
+              </div>
 
               <div className="rating-row" aria-label="Mark this answer wrong or right">
                 <button type="button" className="wrong-button" onClick={() => answerWord(false)}>

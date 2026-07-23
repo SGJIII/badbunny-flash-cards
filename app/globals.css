@@ -891,12 +891,59 @@ input:focus-visible {
   text-align: right;
 }
 
-.example-credit {
+.source-links {
   width: min(100%, 620px);
   margin: -11px auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lyrics-link {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 7px;
+  color: var(--forest);
+  text-decoration: none;
+}
+
+.lyrics-link span,
+.lyrics-link small {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.lyrics-link span {
+  color: var(--orange);
+}
+
+.lyrics-link strong {
+  overflow: hidden;
+  font-family: var(--display);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lyrics-link small {
+  color: var(--muted);
+}
+
+.lyrics-link:hover strong {
+  text-decoration: underline;
+}
+
+.example-credit {
+  flex: 0 1 auto;
+  overflow: hidden;
   color: var(--muted);
   font-size: 8px;
-  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   text-decoration: none;
 }
 
@@ -1833,9 +1880,15 @@ input:focus-visible {
     text-align: left;
   }
 
-  .example-credit {
+  .source-links {
     margin-top: -7px;
-    text-align: left;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .lyrics-link {
+    width: 100%;
   }
 
   .rating-row {
@@ -2226,8 +2279,21 @@ input:focus-visible {
     font-size: 21px;
   }
 
-  .example-credit {
+  .source-links {
     margin: -5px auto 10px;
+  }
+
+  .lyrics-link {
+    min-height: 44px;
+    padding: 0 10px;
+    border: 1px solid rgba(24, 63, 50, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 250, 240, 0.54);
+  }
+
+  .lyrics-link span,
+  .lyrics-link small,
+  .example-credit {
     font-size: 8px;
   }
 

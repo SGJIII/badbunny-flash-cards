@@ -10,6 +10,16 @@ export const metadata: Metadata = {
   applicationName: "Palabras de DTMF",
   icons: { icon: "/favicon.svg" },
   keywords: ["Bad Bunny", "DTMF", "Spanish flashcards", "Puerto Rican Spanish", "language learning"],
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "es_PR",
