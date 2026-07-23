@@ -117,6 +117,8 @@ test("removes the disposable starter and includes Netlify and small-phone output
   assert.match(page, /status === "learning"/);
   assert.match(page, /status: isRight \? "mastered" : "learning"/);
   assert.match(page, /Falladas en cero\./);
+  assert.match(page, /scopedLearningCount/);
+  assert.match(page, /idsForMode\("learning", progress, selectedTrackId\)\.length/);
   assert.match(page, /\{counts\.learning\} falladas recientes/);
   assert.match(page, /runComplete/);
   assert.match(page, /word\.tracks\.includes\(trackId\)/);

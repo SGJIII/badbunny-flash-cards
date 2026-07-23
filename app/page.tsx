@@ -550,6 +550,10 @@ export default function Home() {
     });
     return { mastered, learning, saved };
   }, [progress]);
+  const scopedLearningCount = useMemo(
+    () => idsForMode("learning", progress, selectedTrackId).length,
+    [progress, selectedTrackId],
+  );
 
   const completion = Math.round((counts.mastered / DATA.uniqueWords) * 100);
   const openReports = useMemo(() => reports.filter((report) => report.status === "open"), [reports]);
@@ -1056,10 +1060,10 @@ export default function Home() {
                 type="button"
                 className={`wrong-pile ${mode === "learning" ? "is-active" : ""}`}
                 onClick={() => selectMode("learning")}
-                aria-label={`Practicar ${counts.learning} falladas recientes`}
+                aria-label={`Practicar ${scopedLearningCount} falladas recientes`}
               >
                 <span>Falladas recientes</span>
-                <strong>{counts.learning}</strong>
+                <strong>{scopedLearningCount}</strong>
               </button>
             </div>
           )}
