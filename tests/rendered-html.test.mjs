@@ -20,7 +20,9 @@ test("server-renders the finished study experience", async () => {
   assert.match(html, /corillo/);
   assert.match(html, /Incorrecta/);
   assert.match(html, /Correcta/);
-  assert.match(html, /Pila de falladas/);
+  assert.match(html, /Añadir a la pila de falladas/);
+  assert.match(html, /Falladas recientes/);
+  assert.match(html, /Practicar 0 falladas recientes/);
   assert.match(html, /Desliza ← incorrecta · correcta →/);
   assert.match(html, /Verbos/);
   assert.match(html, /Practica una canción/);
@@ -110,6 +112,12 @@ test("removes the disposable starter and includes Netlify and small-phone output
   assert.match(page, /answerWord\(deltaX > 0\)/);
   assert.match(page, /suppressFlipRef/);
   assert.match(page, /nextMissed/);
+  assert.match(page, /learning: "Falladas recientes"/);
+  assert.match(page, /onClick=\{\(\) => selectMode\("learning"\)\}/);
+  assert.match(page, /status === "learning"/);
+  assert.match(page, /status: isRight \? "mastered" : "learning"/);
+  assert.match(page, /Falladas en cero\./);
+  assert.match(page, /\{counts\.learning\} falladas recientes/);
   assert.match(page, /runComplete/);
   assert.match(page, /word\.tracks\.includes\(trackId\)/);
   assert.match(page, /selectTrack/);

@@ -123,7 +123,7 @@ const MODE_LABELS: Record<Mode, string> = {
   verbs: "Verbos",
   track: "Canción",
   saved: "Guardadas",
-  learning: "Aprendiendo",
+  learning: "Falladas recientes",
 };
 
 const ENGLISH_EXAMPLE_SENTENCES: Record<string, string> = {
@@ -981,7 +981,7 @@ export default function Home() {
             </div>
             <div>
               <p className="progress-title">Tu progreso</p>
-              <p>{counts.mastered} dominadas · {counts.learning} en práctica</p>
+              <p>{counts.mastered} dominadas · {counts.learning} falladas recientes</p>
             </div>
           </div>
 
@@ -1052,10 +1052,15 @@ export default function Home() {
               <div className="round-progress" aria-hidden="true">
                 <span style={{ width: `${roundProgress}%` }} />
               </div>
-              <div className="wrong-pile">
-                <span>Pila de falladas</span>
-                <strong>{missedIds.length}</strong>
-              </div>
+              <button
+                type="button"
+                className={`wrong-pile ${mode === "learning" ? "is-active" : ""}`}
+                onClick={() => selectMode("learning")}
+                aria-label={`Practicar ${counts.learning} falladas recientes`}
+              >
+                <span>Falladas recientes</span>
+                <strong>{counts.learning}</strong>
+              </button>
             </div>
           )}
 
@@ -1216,9 +1221,11 @@ export default function Home() {
             </>
           ) : (
             <div className="empty-deck">
-              <span>✦</span>
-              <h2>Este mazo está vacío.</h2>
-              <p>Guarda palabras o marca algunas como difíciles para verlas aquí.</p>
+              <span>{mode === "learning" ? "✓" : "✦"}</span>
+              <h2>{mode === "learning" ? "Falladas en cero." : "Este mazo está vacío."}</h2>
+              <p>{mode === "learning"
+                ? "No te queda ninguna palabra fallada. Cada error nuevo aparecerá aquí automáticamente."
+                : "Guarda palabras o marca algunas como difíciles para verlas aquí."}</p>
               <button type="button" onClick={() => selectMode("all")}>Practicar todas</button>
             </div>
           )}

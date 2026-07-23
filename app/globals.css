@@ -541,6 +541,25 @@ input:focus-visible {
   border: 1px solid rgba(233, 87, 42, 0.28);
   border-radius: 99px;
   background: rgba(233, 87, 42, 0.07);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.wrong-pile:hover {
+  border-color: rgba(233, 87, 42, 0.52);
+  transform: translateY(-1px);
+}
+
+.wrong-pile.is-active {
+  border-color: var(--orange);
+  background: var(--orange);
+}
+
+.wrong-pile.is-active span,
+.wrong-pile.is-active strong {
+  color: var(--paper);
 }
 
 .wrong-pile strong {
