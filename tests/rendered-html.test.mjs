@@ -27,7 +27,8 @@ test("server-renders the finished study experience", async () => {
   assert.match(html, /Reportes pendientes/);
   assert.match(html, /FRENTE DE LA TARJETA/);
   assert.match(html, /English/);
-  assert.match(html, /IN A SENTENCE · ENGLISH/);
+  assert.match(html, /EN UNA ORACIÓN · SPANISH → ENGLISH/);
+  assert.match(html, /Mi corillo está afuera; vámonos\./);
   assert.match(html, /My crew is waiting outside, so let’s go\./);
   assert.match(html, /name="card-report"/);
   assert.match(html, /data-netlify="true"/);
@@ -58,6 +59,7 @@ test("ships a complete, deduplicated vocabulary-only dataset", async () => {
   assert.equal(grammar.entries.baile.form, "masculine noun");
   assert.equal(grammar.entries.bailando.form, "gerund");
   assert.equal(data.words.find((word) => word.term === "fotito").meaning, "little photo / cute little photo");
+  assert.equal(data.words.find((word) => word.term === "perfumito").meaning, "little perfume / perfume scent");
 });
 
 test("removes the disposable starter and includes Netlify and small-phone output config", async () => {
@@ -87,15 +89,23 @@ test("removes the disposable starter and includes Netlify and small-phone output
   assert.match(page, /idsForMode\(item, progress, selectedTrackId\)\.length/);
   assert.match(page, /Todo el álbum/);
   assert.match(page, /english-first/);
-  assert.match(page, /IN A SENTENCE · ENGLISH/);
-  assert.match(page, /englishExampleSentence/);
+  assert.match(page, /EN UNA ORACIÓN · SPANISH → ENGLISH/);
+  assert.match(page, /curatedSentencePair/);
+  assert.match(page, /spanish: match\.sentence\.text/);
+  assert.match(page, /english: match\.translation\.text/);
+  assert.match(page, /name="exampleSpanish"/);
+  assert.match(page, /name="exampleEnglish"/);
   assert.match(page, /api\.tatoeba\.org\/v1\/sentences/);
   assert.match(page, /q: `=\$\{term\}`/);
   assert.match(page, /Example by/);
   assert.match(page, /I dance whenever that song comes on\./);
   assert.match(page, /That dance is one I’ll never forget\./);
   assert.match(page, /She sent me a cute little photo before the party\./);
+  assert.match(page, /Yo bailo cada vez que ponen esa canción\./);
+  assert.match(page, /Ese baile es uno que nunca voy a olvidar\./);
+  assert.match(page, /Ella me mandó una fotito antes de la fiesta\./);
   assert.doesNotMatch(page, /HOW IT’S USED · PARAPHRASED|here it means|carries the sense/);
+  assert.doesNotMatch(page, /englishExampleSentence|The phrase “/);
   assert.match(layout, /viewportFit: "cover"/);
   assert.match(css, /iPhone 13 mini/);
   assert.match(css, /@media \(max-width: 430px\)/);

@@ -4529,14 +4529,14 @@
     {
       "id": 271,
       "term": "perfumito",
-      "meaning": "perfumed",
+      "meaning": "little perfume / perfume scent",
       "count": 4,
       "tracks": [
         4
       ],
       "tier": "frequent",
       "category": "standard",
-      "source": "machine"
+      "source": "curated"
     },
     {
       "id": 272,

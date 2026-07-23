@@ -27,21 +27,32 @@ type CardReport = {
   wordId: number;
   term: string;
   displayedMeaning: string;
+  exampleSpanish?: string;
+  exampleEnglish?: string;
   issue: IssueKind;
   note: string;
   createdAt: string;
   status: "open" | "resolved";
   delivery: "local" | "submitted";
 };
+type SentencePair = {
+  spanish: string;
+  english: string;
+};
 type SentenceExample = {
-  text: string;
-  sentenceId: number;
-  owner: string;
-  license: string;
+  spanish: string;
+  english: string;
+  sourceSentenceId: number;
+  sourceOwner: string;
+  sourceLicense: string;
+  translationOwner: string;
+  translationLicense: string;
 };
 type TatoebaSentence = {
   id: number;
   text: string;
+  license: string;
+  owner: string | null;
   is_unapproved: boolean;
   translations: Array<{
     id: number;
@@ -228,7 +239,68 @@ const ENGLISH_EXAMPLE_SENTENCES: Record<string, string> = {
   bailando: "We kept dancing until the lights came on.",
   corillo: "My crew is waiting outside, so let’s go.",
   fotito: "She sent me a cute little photo before the party.",
+  perfumito: "I can still smell your perfume on my shirt.",
 };
+
+const CURATED_SPANISH_SENTENCES: Record<string, string> = {
+  pa: "Guardé este baile pa ti.",
+  mami: "Mami, tú sabes que guardé este baile para ti.",
+  "vo'a": "Vo'a bailar hasta que cierre el club.",
+  na: "Na se sintió igual después que te fuiste.",
+  verdá: "Todavía extrañas esas noches, ¿verdá?",
+  dale: "Dale, que la noche apenas comienza.",
+  to: "Te di to lo que tenía.",
+  cabrón: "Ese cabrón todavía cree que la pista es de él.",
+  pr: "Quiero volver pa PR este verano.",
+  perreo: "Ese perreo mantuvo a todo el mundo bailando.",
+  perreá: "Perreá conmigo antes de que el DJ cambie la canción.",
+  bellaquita: "La bellaquita se adueñó de la pista.",
+  "pa'cá": "Ven pa'cá para poder escucharte.",
+  "pa'l": "Vamos pa'l club después de medianoche.",
+  papi: "Papi, acércate antes de que termine la canción.",
+  perreando: "Pasamos la noche entera perreando.",
+  "to'l": "To'l club cantó cuando llegó el coro.",
+  acho: "Acho, todavía no puedo creer lo que pasó.",
+  chamaquito: "Ese chamaquito se sabe todas las canciones del DJ.",
+  nena: "Nena, guarda el último baile para mí.",
+  perrear: "Vinimos a perrear hasta que salga el sol.",
+  bellaca: "Se puso bellaca cuando cayó el beat.",
+  bellaqueo: "El bellaqueo se puso más intenso durante la noche.",
+  culito: "No paraba de hablar de ese culito.",
+  janguear: "Podemos janguear después de la fiesta.",
+  nene: "Nene, llámame cuando llegues a casa.",
+  "pa'llá": "Vamos pa'llá, donde la música suena más fuerte.",
+  "pa'trá": "Muévete pa'trá antes de que se cierre el corillo.",
+  perico: "Juró que la bolsa tenía perico.",
+  pitorro: "Pasaron una botella de pitorro en la fiesta.",
+  sobeteo: "Ella se cansó del sobeteo en el club.",
+  vámono: "Vámono antes de que salga el sol.",
+  vírate: "Vírate y mírame cuando te hablo.",
+  bellaqueando: "Siguieron bellaqueando y bailando toda la noche.",
+  bicho: "Ese bicho habla de más cuando está con su corillo.",
+  bichote: "El bichote llegó con el corillo completo.",
+  cabrona: "Entró como una cabrona que no le teme a nadie.",
+  chinchorrear: "Nos fuimos a chinchorrear por la isla el domingo.",
+  "chinga'o": "Todo estaba bien chinga'o después de la fiesta.",
+  chingando: "Estaban chingando mientras los demás salían.",
+  chingar: "Se fueron temprano para chingar.",
+  chulería: "Su ropa era una chulería caribeña.",
+  jangueando: "Estábamos jangueando cuando pusieron nuestra canción.",
+  pal: "Esta canción es pal que decidió quedarse.",
+  puñeta: "Puñeta, esa canción todavía me llega.",
+  bailo: "Yo bailo cada vez que ponen esa canción.",
+  baile: "Ese baile es uno que nunca voy a olvidar.",
+  bailando: "Seguimos bailando hasta que prendieron las luces.",
+  corillo: "Mi corillo está afuera; vámonos.",
+  fotito: "Ella me mandó una fotito antes de la fiesta.",
+  perfumito: "Todavía tengo tu perfumito en la camisa.",
+};
+
+function curatedSentencePair(term: string): SentencePair | undefined {
+  const spanish = CURATED_SPANISH_SENTENCES[term];
+  const english = ENGLISH_EXAMPLE_SENTENCES[term];
+  return spanish && english ? { spanish, english } : undefined;
+}
 
 function shuffled(values: number[]) {
   const next = [...values];
@@ -266,18 +338,6 @@ function makeQueue(mode: Mode, progress: ProgressMap, trackId = 0, leadId?: numb
     return [preferred, ...randomized.filter((id) => id !== preferred)];
   }
   return randomized;
-}
-
-function englishExampleSentence(word: WordCard, grammar: GrammarEntry | undefined) {
-  const curated = ENGLISH_EXAMPLE_SENTENCES[word.term];
-  if (curated) return curated;
-
-  const meaning = (grammar?.gloss ?? word.meaning)
-    .split(" / ")[0]
-    .replace(/\s*\([^)]*\)\s*/g, " ")
-    .trim();
-  const capitalizedMeaning = meaning.charAt(0).toLocaleUpperCase("en") + meaning.slice(1);
-  return `The phrase “${capitalizedMeaning}” stayed with me after the music stopped.`;
 }
 
 function Icon({ children }: { children: React.ReactNode }) {
@@ -377,7 +437,7 @@ export default function Home() {
   const currentMeaning = currentGrammar?.gloss ?? currentWord?.meaning ?? "";
 
   useEffect(() => {
-    if (!currentWord || ENGLISH_EXAMPLE_SENTENCES[currentWord.term]) return;
+    if (!currentWord || curatedSentencePair(currentWord.term)) return;
     if (Object.prototype.hasOwnProperty.call(sentenceExamples, currentWord.term)) return;
 
     const term = currentWord.term;
@@ -407,10 +467,13 @@ export default function Home() {
         const match = candidates[0];
         const example = match
           ? {
-              text: match.translation.text,
-              sentenceId: match.translation.id,
-              owner: match.translation.owner ?? "Tatoeba contributor",
-              license: match.translation.license,
+              spanish: match.sentence.text,
+              english: match.translation.text,
+              sourceSentenceId: match.sentence.id,
+              sourceOwner: match.sentence.owner ?? "Tatoeba contributor",
+              sourceLicense: match.sentence.license,
+              translationOwner: match.translation.owner ?? "Tatoeba contributor",
+              translationLicense: match.translation.license,
             }
           : null;
         setSentenceExamples((previous) => ({ ...previous, [term]: example }));
@@ -595,11 +658,14 @@ export default function Home() {
     if (!currentWord) return;
 
     const existing = reports.find((report) => report.wordId === currentWord.id && report.status === "open");
+    const reportExample = curatedSentencePair(currentWord.term) ?? sentenceExamples[currentWord.term] ?? undefined;
     const baseReport: CardReport = {
       id: existing?.id ?? (window.crypto?.randomUUID?.() ?? `${Date.now()}-${currentWord.id}`),
       wordId: currentWord.id,
       term: currentWord.term,
       displayedMeaning: currentMeaning,
+      exampleSpanish: reportExample?.spanish,
+      exampleEnglish: reportExample?.english,
       issue: reportIssue,
       note: reportNote.trim(),
       createdAt: existing?.createdAt ?? new Date().toISOString(),
@@ -617,6 +683,8 @@ export default function Home() {
           wordId: String(baseReport.wordId),
           term: baseReport.term,
           currentAnswer: baseReport.displayedMeaning,
+          exampleSpanish: baseReport.exampleSpanish ?? "",
+          exampleEnglish: baseReport.exampleEnglish ?? "",
           issue: ISSUE_LABELS[baseReport.issue],
           note: baseReport.note,
           tracks: relatedTracks.map((track) => track.title).join(" · "),
@@ -639,13 +707,15 @@ export default function Home() {
       : [...previous, nextReport]);
     setReportOpen(false);
     setReportNotice(delivery === "submitted" ? "Reporte enviado y guardado." : "Reporte guardado en este navegador.");
-  }, [currentMeaning, currentWord, relatedTracks, reportIssue, reportNote, reports]);
+  }, [currentMeaning, currentWord, relatedTracks, reportIssue, reportNote, reports, sentenceExamples]);
 
   const copyReport = useCallback(async (report: CardReport) => {
     const text = [
       "Card report — Palabras de DTMF",
       `Word: ${report.term} (#${report.wordId})`,
       `Current answer: ${report.displayedMeaning}`,
+      `Spanish example: ${report.exampleSpanish || "Not available"}`,
+      `English example: ${report.exampleEnglish || "Not available"}`,
       `Problem: ${ISSUE_LABELS[report.issue]}`,
       `Note: ${report.note || "No additional note"}`,
     ].join("\n");
@@ -698,14 +768,14 @@ export default function Home() {
       : `${MODE_LABELS[mode]} · ${selectedTrack.title}`
     : MODE_LABELS[mode];
   const englishFirst = studyDirection === "english-first";
+  const curatedExample = currentWord ? curatedSentencePair(currentWord.term) : undefined;
   const fetchedExample = currentWord ? sentenceExamples[currentWord.term] : undefined;
-  const exampleSentence = fetchedExample?.text ?? (currentWord
-    ? englishExampleSentence(currentWord, currentGrammar)
-    : "");
+  const exampleSentence = curatedExample ?? fetchedExample ?? undefined;
+  const exampleLoading = Boolean(currentWord && !exampleSentence && fetchedExample !== null);
   const exampleSource = fetchedExample
     ? {
-        href: `https://tatoeba.org/en/sentences/show/${fetchedExample.sentenceId}`,
-        label: `${fetchedExample.owner} · Tatoeba · ${fetchedExample.license}`,
+        href: `https://tatoeba.org/en/sentences/show/${fetchedExample.sourceSentenceId}`,
+        label: `${fetchedExample.sourceOwner} + ${fetchedExample.translationOwner} · Tatoeba · ${fetchedExample.sourceLicense} / ${fetchedExample.translationLicense}`,
       }
     : "";
   const frontText = englishFirst ? currentMeaning : currentWord?.term ?? "";
@@ -723,6 +793,8 @@ export default function Home() {
         <input name="wordId" />
         <input name="term" />
         <input name="currentAnswer" />
+        <input name="exampleSpanish" />
+        <input name="exampleEnglish" />
         <input name="issue" />
         <input name="note" />
         <input name="tracks" />
@@ -892,7 +964,7 @@ export default function Home() {
                   className={`flashcard ${flipped ? "is-flipped" : ""}`}
                   onClick={() => setFlipped((value) => !value)}
                   aria-label={flipped
-                    ? `${englishFirst ? "Spanish" : "English"}: ${backText}. Example: ${exampleSentence}. Flip back.`
+                    ? `${englishFirst ? "Spanish" : "English"}: ${backText}.${exampleSentence ? ` Spanish example: ${exampleSentence.spanish}. English: ${exampleSentence.english}.` : ""} Flip back.`
                     : `${englishFirst ? "English" : "Spanish"}: ${frontText}. Flip for the answer.`}
                   aria-pressed={flipped}
                 >
@@ -920,8 +992,17 @@ export default function Home() {
                       </span>
                       <span className={`meaning has-context ${currentGrammar ? "has-grammar" : ""} ${englishFirst ? "is-spanish-answer" : ""}`}>{backText}</span>
                       <span className="usage-context">
-                        <span>IN A SENTENCE · ENGLISH</span>
-                        <small>{exampleSentence}</small>
+                        <span>EN UNA ORACIÓN · SPANISH → ENGLISH</span>
+                        {exampleSentence ? (
+                          <>
+                            <strong lang="es">{exampleSentence.spanish}</strong>
+                            <small lang="en">{exampleSentence.english}</small>
+                          </>
+                        ) : (
+                          <small className="example-status">
+                            {exampleLoading ? "Buscando una oración revisada…" : "Esta oración necesita revisión."}
+                          </small>
+                        )}
                       </span>
                       {currentGrammar && (
                         <span className={`grammar-panel is-${currentGrammar.kind}`}>
@@ -1076,6 +1157,8 @@ export default function Home() {
               <input type="hidden" name="wordId" value={currentWord.id} />
               <input type="hidden" name="term" value={currentWord.term} />
               <input type="hidden" name="currentAnswer" value={currentMeaning} />
+              <input type="hidden" name="exampleSpanish" value={exampleSentence?.spanish ?? ""} />
+              <input type="hidden" name="exampleEnglish" value={exampleSentence?.english ?? ""} />
               <input type="hidden" name="issue" value={ISSUE_LABELS[reportIssue]} />
               <input type="hidden" name="tracks" value={relatedTracks.map((track) => track.title).join(" · ")} />
               <p className="netlify-honeypot">
@@ -1141,6 +1224,8 @@ export default function Home() {
                     <span>PALABRA #{activeReport.wordId}</span>
                     <strong>{activeReport.term}</strong>
                     <p>{activeReport.displayedMeaning}</p>
+                    {activeReport.exampleSpanish && <p lang="es">{activeReport.exampleSpanish}</p>}
+                    {activeReport.exampleEnglish && <p lang="en">{activeReport.exampleEnglish}</p>}
                   </div>
                   <dl>
                     <div><dt>Problema</dt><dd>{ISSUE_LABELS[activeReport.issue]}</dd></div>

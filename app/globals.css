@@ -732,10 +732,24 @@ input:focus-visible {
   letter-spacing: 0.12em;
 }
 
+.usage-context strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
 .usage-context small {
   display: block;
+  margin-top: 3px;
   font-size: 9px;
   line-height: 1.35;
+}
+
+.usage-context .example-status {
+  color: var(--muted);
+  font-style: italic;
 }
 
 .grammar-panel {
@@ -1783,6 +1797,10 @@ input:focus-visible {
     font-size: 8px;
   }
 
+  .usage-context strong {
+    font-size: 11px;
+  }
+
   .grammar-panel {
     max-width: 92%;
     margin-top: 13px;
@@ -2154,6 +2172,11 @@ input:focus-visible {
   .usage-context small {
     font-size: 10px;
     line-height: 1.28;
+  }
+
+  .usage-context strong {
+    font-size: 12px;
+    line-height: 1.22;
   }
 
   .grammar-panel {

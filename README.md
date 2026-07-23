@@ -14,11 +14,11 @@ A local-first Spanish flashcard site built from the deduplicated vocabulary in B
 - per-card problem reports with a one-by-one review queue, local backup, JSON export, and Netlify Forms delivery
 - wrong/right mastery rounds that recycle missed words until you finish a clean round
 - card flipping, keyboard shortcuts, pronunciation, search, and word-frequency context
-- Spanish-first or English-first cards, with hand-written song-style English examples for core vocabulary and exact-word examples from Tatoeba for long-tail words
+- Spanish-first or English-first cards, with each example shown in natural Spanish first and English underneath
 - progress saved in the visitor’s browser; no account or database required
 - a static Netlify-ready build
 
-The repository contains the vocabulary dataset, grammar annotations, and word counts—not the full lyrics. Album vocabulary is derived from [LRCLIB](https://lrclib.net/); machine translations were generated with [MyMemory](https://mymemory.translated.net/), grammar was cross-checked with open-source Spanish morphology and conjugation tools, and key Puerto Rican or ambiguous forms were reviewed manually. Long-tail practice sentences are fetched from [Tatoeba](https://tatoeba.org/) with per-sentence contributor and license attribution.
+The repository contains the vocabulary dataset, grammar annotations, and word counts—not the full lyrics. Album vocabulary is derived from [LRCLIB](https://lrclib.net/); machine translations were generated with [MyMemory](https://mymemory.translated.net/), grammar was cross-checked with open-source Spanish morphology and conjugation tools, and key Puerto Rican or ambiguous forms were reviewed manually. Original Spanish/English examples are curated for Puerto Rican slang and reported cards; long-tail practice sentences are fetched from [Tatoeba](https://tatoeba.org/) with per-sentence contributor and license attribution.
 
 ## Run locally
 

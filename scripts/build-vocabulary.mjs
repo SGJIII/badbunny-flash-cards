@@ -146,6 +146,7 @@ const OVERRIDES = {
   perreando: "dancing reggaetón / grinding",
   perrear: "to dance reggaetón / grind",
   perreá: "dance reggaetón / grind",
+  perfumito: "little perfume / perfume scent",
   piquito: "little kiss / peck",
   pitorro: "Puerto Rican moonshine",
   playita: "little beach",
