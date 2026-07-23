@@ -331,6 +331,7 @@
     },
     "he": {
       "kind": "verb",
+      "gloss": "I have (auxiliary)",
       "lemma": "haber",
       "form": "yo · present indicative"
     },
@@ -402,8 +403,9 @@
     },
     "da": {
       "kind": "verb",
+      "gloss": "he/she/you gives; give (command)",
       "lemma": "dar",
-      "form": "él/ella/usted · present indicative"
+      "form": "él/ella/usted · present indicative; tú · affirmative command"
     },
     "dejaste": {
       "kind": "verb",
@@ -885,8 +887,9 @@
     },
     "hacía": {
       "kind": "verb",
+      "gloss": "I/he/she/you used to do / make",
       "lemma": "hacer",
-      "form": "él/ella/usted · imperfect"
+      "form": "yo/él/ella/usted · imperfect"
     },
     "has": {
       "kind": "verb",
@@ -1514,6 +1517,7 @@
     },
     "dio": {
       "kind": "verb",
+      "gloss": "he/she/you gave",
       "lemma": "dar",
       "form": "él/ella/usted · preterite"
     },
@@ -2012,8 +2016,9 @@
     },
     "prendan": {
       "kind": "verb",
-      "lemma": "prendar",
-      "form": "ellos/ellas/ustedes · present indicative"
+      "gloss": "turn on / light up (you all)",
+      "lemma": "prender",
+      "form": "ustedes · affirmative command; ellos/ellas/ustedes · present subjunctive"
     },
     "probando": {
       "kind": "verb",
@@ -2344,6 +2349,7 @@
     },
     "tiré": {
       "kind": "verb",
+      "gloss": "I threw / took (a photo)",
       "lemma": "tirar",
       "form": "yo · preterite"
     },
@@ -2399,6 +2405,7 @@
     },
     "valgan": {
       "kind": "verb",
+      "gloss": "may be worth / be worthwhile (they)",
       "lemma": "valer",
       "form": "ellos/ellas/ustedes · present subjunctive"
     },

@@ -3612,7 +3612,7 @@
     {
       "id": 202,
       "term": "he",
-      "meaning": "he",
+      "meaning": "I have (auxiliary)",
       "count": 5,
       "tracks": [
         3,
@@ -3622,8 +3622,8 @@
         16
       ],
       "tier": "frequent",
-      "category": "name-or-untranslated",
-      "source": "machine"
+      "category": "standard",
+      "source": "curated"
     },
     {
       "id": 203,
@@ -4187,7 +4187,7 @@
     {
       "id": 245,
       "term": "da",
-      "meaning": "from",
+      "meaning": "he/she/you gives; give (command)",
       "count": 4,
       "tracks": [
         5,
@@ -4196,7 +4196,7 @@
       ],
       "tier": "frequent",
       "category": "standard",
-      "source": "machine"
+      "source": "curated"
     },
     {
       "id": 246,
@@ -7306,7 +7306,7 @@
     {
       "id": 489,
       "term": "hacía",
-      "meaning": "towards",
+      "meaning": "I/he/she/you used to do / make",
       "count": 2,
       "tracks": [
         3,
@@ -7314,7 +7314,7 @@
       ],
       "tier": "deep-cut",
       "category": "standard",
-      "source": "machine"
+      "source": "curated"
     },
     {
       "id": 490,
@@ -11864,14 +11864,14 @@
     {
       "id": 864,
       "term": "dio",
-      "meaning": "dio",
+      "meaning": "he/she/you gave",
       "count": 1,
       "tracks": [
         16
       ],
       "tier": "deep-cut",
-      "category": "name-or-untranslated",
-      "source": "machine"
+      "category": "standard",
+      "source": "curated"
     },
     {
       "id": 865,
@@ -16556,14 +16556,14 @@
     {
       "id": 1255,
       "term": "prendan",
-      "meaning": "take",
+      "meaning": "turn on / light up (you all)",
       "count": 1,
       "tracks": [
         16
       ],
       "tier": "deep-cut",
       "category": "standard",
-      "source": "machine"
+      "source": "curated"
     },
     {
       "id": 1256,
@@ -18344,14 +18344,14 @@
     {
       "id": 1404,
       "term": "tiré",
-      "meaning": "tiré",
+      "meaning": "I threw / took (a photo)",
       "count": 1,
       "tracks": [
         16
       ],
       "tier": "deep-cut",
-      "category": "name-or-untranslated",
-      "source": "machine"
+      "category": "standard",
+      "source": "curated"
     },
     {
       "id": 1405,
@@ -18836,14 +18836,14 @@
     {
       "id": 1445,
       "term": "valgan",
-      "meaning": "valgan",
+      "meaning": "may be worth / be worthwhile (they)",
       "count": 1,
       "tracks": [
         16
       ],
       "tier": "deep-cut",
-      "category": "name-or-untranslated",
-      "source": "machine"
+      "category": "standard",
+      "source": "curated"
     },
     {
       "id": 1446,

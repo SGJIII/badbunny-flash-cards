@@ -75,6 +75,17 @@ const TRACK_WORD_COUNTS = Object.fromEntries(
 const STORAGE_KEY = "palabras-dtmf-progress-v1";
 const REPORTS_KEY = "palabras-dtmf-reports-v1";
 const DIRECTION_KEY = "palabras-dtmf-direction-v1";
+const RESOLVED_REPORT_IDS = new Set([
+  "2f07a036-f222-4e97-bc5b-c437d5985cd5",
+  "2649d1ec-dbe6-4d48-aff4-b48c13094354",
+  "1661ce6d-17dd-465d-89ad-98b8bfd0b153",
+  "0203d681-0d21-47a3-b34b-fff91a18e28d",
+  "846774fa-770f-49ba-95f4-c2dae3dcb958",
+  "e2ffbee9-0875-4631-a773-8ab646a861a4",
+  "c8bbac2b-66d0-4cb0-a3b7-036ef796e907",
+  "e5ab0c43-7f96-477c-8229-add4d6f35727",
+  "097c1508-235a-457d-afd1-00b078e3f1bb",
+]);
 
 const ISSUE_LABELS: Record<IssueKind, string> = {
   translation: "Traducción incorrecta",
@@ -240,6 +251,13 @@ const ENGLISH_EXAMPLE_SENTENCES: Record<string, string> = {
   corillo: "My crew is waiting outside, so let’s go.",
   fotito: "She sent me a cute little photo before the party.",
   perfumito: "I can still smell your perfume on my shirt.",
+  he: "I have kept the photos from that summer.",
+  da: "That song gives me joy.",
+  hacía: "He used to make music every night.",
+  dio: "She gave me a photo before leaving.",
+  prendan: "Turn on the lights when the crew arrives.",
+  tiré: "I took a lot of photos at the party.",
+  valgan: "I want memories that are worth it.",
 };
 
 const CURATED_SPANISH_SENTENCES: Record<string, string> = {
@@ -294,6 +312,13 @@ const CURATED_SPANISH_SENTENCES: Record<string, string> = {
   corillo: "Mi corillo está afuera; vámonos.",
   fotito: "Ella me mandó una fotito antes de la fiesta.",
   perfumito: "Todavía tengo tu perfumito en la camisa.",
+  he: "He guardado las fotos de aquel verano.",
+  da: "Esa canción me da alegría.",
+  hacía: "Él hacía música todas las noches.",
+  dio: "Ella me dio una foto antes de irse.",
+  prendan: "Prendan las luces cuando llegue el corillo.",
+  tiré: "Tiré muchas fotos en la fiesta.",
+  valgan: "Quiero recuerdos que valgan la pena.",
 };
 
 function curatedSentencePair(term: string): SentencePair | undefined {
@@ -383,7 +408,10 @@ export default function Home() {
       }
       const storedReports = window.localStorage.getItem(REPORTS_KEY);
       if (storedReports) {
-        setReports(JSON.parse(storedReports) as CardReport[]);
+        const parsedReports = JSON.parse(storedReports) as CardReport[];
+        setReports(parsedReports.map((report) => RESOLVED_REPORT_IDS.has(report.id)
+          ? { ...report, status: "resolved" }
+          : report));
       }
       const storedDirection = window.localStorage.getItem(DIRECTION_KEY);
       if (storedDirection === "spanish-first" || storedDirection === "english-first") {

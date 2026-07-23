@@ -60,6 +60,26 @@ test("ships a complete, deduplicated vocabulary-only dataset", async () => {
   assert.equal(grammar.entries.bailando.form, "gerund");
   assert.equal(data.words.find((word) => word.term === "fotito").meaning, "little photo / cute little photo");
   assert.equal(data.words.find((word) => word.term === "perfumito").meaning, "little perfume / perfume scent");
+
+  const reportedFixes = {
+    "he": "I have (auxiliary)",
+    "da": "he/she/you gives; give (command)",
+    "hacía": "I/he/she/you used to do / make",
+    "dio": "he/she/you gave",
+    "prendan": "turn on / light up (you all)",
+    "tiré": "I threw / took (a photo)",
+    "valgan": "may be worth / be worthwhile (they)",
+  };
+  for (const [term, meaning] of Object.entries(reportedFixes)) {
+    const word = data.words.find((entry) => entry.term === term);
+    assert.equal(word?.meaning, meaning, `${term} should use the reviewed translation`);
+    assert.equal(word?.source, "curated", `${term} should be marked as curated`);
+    assert.equal(grammar.entries[term]?.gloss, meaning, `${term} grammar should match the card`);
+  }
+  assert.equal(grammar.entries.prendan.lemma, "prender");
+  assert.match(grammar.entries.prendan.form, /affirmative command/);
+  assert.equal(grammar.entries["hacía"].form, "yo/él/ella/usted · imperfect");
+  assert.match(grammar.entries.da.form, /affirmative command/);
 });
 
 test("removes the disposable starter and includes Netlify and small-phone output config", async () => {
@@ -104,6 +124,13 @@ test("removes the disposable starter and includes Netlify and small-phone output
   assert.match(page, /Yo bailo cada vez que ponen esa canción\./);
   assert.match(page, /Ese baile es uno que nunca voy a olvidar\./);
   assert.match(page, /Ella me mandó una fotito antes de la fiesta\./);
+  assert.match(page, /He guardado las fotos de aquel verano\./);
+  assert.match(page, /Prendan las luces cuando llegue el corillo\./);
+  assert.match(page, /Tiré muchas fotos en la fiesta\./);
+  assert.match(page, /Quiero recuerdos que valgan la pena\./);
+  assert.match(page, /RESOLVED_REPORT_IDS/);
+  assert.match(page, /2f07a036-f222-4e97-bc5b-c437d5985cd5/);
+  assert.match(page, /097c1508-235a-457d-afd1-00b078e3f1bb/);
   assert.doesNotMatch(page, /HOW IT’S USED · PARAPHRASED|here it means|carries the sense/);
   assert.doesNotMatch(page, /englishExampleSentence|The phrase “/);
   assert.match(layout, /viewportFit: "cover"/);
