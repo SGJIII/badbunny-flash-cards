@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import grammarData from "./data/grammar.json";
 import vocabularyData from "./data/vocabulary.json";
 
@@ -75,6 +75,8 @@ const TRACK_WORD_COUNTS = Object.fromEntries(
 const STORAGE_KEY = "palabras-dtmf-progress-v1";
 const REPORTS_KEY = "palabras-dtmf-reports-v1";
 const DIRECTION_KEY = "palabras-dtmf-direction-v1";
+const SWIPE_THRESHOLD = 72;
+const SWIPE_MAX_OFFSET = 150;
 const RESOLVED_REPORT_IDS = new Set([
   "2f07a036-f222-4e97-bc5b-c437d5985cd5",
   "2649d1ec-dbe6-4d48-aff4-b48c13094354",
@@ -412,6 +414,10 @@ export default function Home() {
   const [reportNote, setReportNote] = useState("");
   const [reportNotice, setReportNotice] = useState("");
   const [sentenceExamples, setSentenceExamples] = useState<Record<string, SentenceExample | null>>({});
+  const [swipeOffset, setSwipeOffset] = useState(0);
+  const [swipeChoice, setSwipeChoice] = useState<"wrong" | "right" | null>(null);
+  const swipeStartRef = useRef<{ x: number; y: number; pointerId: number } | null>(null);
+  const suppressFlipRef = useRef(false);
 
   useEffect(() => {
     try {
@@ -623,6 +629,9 @@ export default function Home() {
 
   const answerWord = useCallback((isRight: boolean) => {
     if (!currentWord) return;
+    swipeStartRef.current = null;
+    setSwipeOffset(0);
+    setSwipeChoice(null);
     setProgress((previous) => {
       const entry = previous[currentWord.term] ?? { status: "new", favorite: false, reviews: 0 };
       return {
@@ -658,6 +667,61 @@ export default function Home() {
     setMissedIds([]);
     setRunComplete(true);
   }, [currentWord, missedIds, queue.length, queueIndex]);
+
+  const beginSwipe = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    if (!event.isPrimary || (event.pointerType === "mouse" && event.button !== 0)) return;
+    swipeStartRef.current = {
+      x: event.clientX,
+      y: event.clientY,
+      pointerId: event.pointerId,
+    };
+    suppressFlipRef.current = false;
+    setSwipeOffset(0);
+    setSwipeChoice(null);
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }, []);
+
+  const updateSwipe = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    const start = swipeStartRef.current;
+    if (!start || start.pointerId !== event.pointerId) return;
+    const deltaX = event.clientX - start.x;
+    const deltaY = event.clientY - start.y;
+    if (Math.abs(deltaX) < 7 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+
+    event.preventDefault();
+    suppressFlipRef.current = true;
+    const limitedOffset = Math.max(-SWIPE_MAX_OFFSET, Math.min(SWIPE_MAX_OFFSET, deltaX));
+    setSwipeOffset(limitedOffset);
+    setSwipeChoice(Math.abs(deltaX) >= SWIPE_THRESHOLD ? (deltaX > 0 ? "right" : "wrong") : null);
+  }, []);
+
+  const finishSwipe = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    const start = swipeStartRef.current;
+    if (!start || start.pointerId !== event.pointerId) return;
+    const deltaX = event.clientX - start.x;
+    const deltaY = event.clientY - start.y;
+    const completed = Math.abs(deltaX) >= SWIPE_THRESHOLD && Math.abs(deltaX) > Math.abs(deltaY) * 1.15;
+
+    swipeStartRef.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    if (completed) {
+      suppressFlipRef.current = true;
+      answerWord(deltaX > 0);
+      return;
+    }
+    setSwipeOffset(0);
+    setSwipeChoice(null);
+  }, [answerWord]);
+
+  const cancelSwipe = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    if (swipeStartRef.current?.pointerId !== event.pointerId) return;
+    swipeStartRef.current = null;
+    suppressFlipRef.current = false;
+    setSwipeOffset(0);
+    setSwipeChoice(null);
+  }, []);
 
   const toggleFavorite = useCallback(() => {
     if (!currentWord) return;
@@ -1008,10 +1072,31 @@ export default function Home() {
             <>
               <div className="card-stage">
                 <div className="sun-shape" aria-hidden="true" />
+                <span className={`swipe-cue swipe-cue-wrong ${swipeChoice === "wrong" ? "is-active" : ""}`} aria-hidden="true">
+                  ← INCORRECTA
+                </span>
+                <span className={`swipe-cue swipe-cue-right ${swipeChoice === "right" ? "is-active" : ""}`} aria-hidden="true">
+                  CORRECTA →
+                </span>
                 <button
                   type="button"
-                  className={`flashcard ${flipped ? "is-flipped" : ""}`}
-                  onClick={() => setFlipped((value) => !value)}
+                  className={`flashcard ${flipped ? "is-flipped" : ""} ${swipeOffset ? "is-swiping" : ""} ${swipeChoice ? `is-swipe-${swipeChoice}` : ""}`}
+                  style={{
+                    "--swipe-x": `${swipeOffset}px`,
+                    "--swipe-tilt": `${swipeOffset * 0.035}deg`,
+                  } as React.CSSProperties}
+                  onPointerDown={beginSwipe}
+                  onPointerMove={updateSwipe}
+                  onPointerUp={finishSwipe}
+                  onPointerCancel={cancelSwipe}
+                  onClick={() => {
+                    if (suppressFlipRef.current) {
+                      suppressFlipRef.current = false;
+                      return;
+                    }
+                    setFlipped((value) => !value);
+                  }}
+                  aria-describedby="swipe-hint"
                   aria-label={flipped
                     ? `${englishFirst ? "Spanish" : "English"}: ${backText}.${exampleSentence ? ` Spanish example: ${exampleSentence.spanish}. English: ${exampleSentence.english}.` : ""} Flip back.`
                     : `${englishFirst ? "English" : "Spanish"}: ${frontText}. Flip for the answer.`}
@@ -1124,7 +1209,10 @@ export default function Home() {
                   <span>2</span><strong>Correcta</strong><small>Quitar de esta ronda</small>
                 </button>
               </div>
-              <p className="keyboard-hint">Espacio para voltear · 1 incorrecta · 2 correcta</p>
+              <p className="keyboard-hint" id="swipe-hint">
+                <span className="touch-hint">Desliza ← incorrecta · correcta → · toca para voltear</span>
+                <span className="desktop-hint">Espacio para voltear · 1 incorrecta · 2 correcta</span>
+              </p>
             </>
           ) : (
             <div className="empty-deck">

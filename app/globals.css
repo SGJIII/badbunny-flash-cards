@@ -596,6 +596,8 @@ input:focus-visible {
 }
 
 .flashcard {
+  --swipe-x: 0px;
+  --swipe-tilt: 0deg;
   position: relative;
   z-index: 3;
   width: min(82vw, 510px);
@@ -604,8 +606,66 @@ input:focus-visible {
   border: 0;
   background: transparent;
   cursor: pointer;
-  transform: rotate(-2deg);
+  transform: translate3d(var(--swipe-x), 0, 0) rotate(calc(-2deg + var(--swipe-tilt)));
   transform-style: preserve-3d;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 180ms cubic-bezier(0.2, 0.75, 0.24, 1), filter 180ms ease;
+}
+
+.flashcard.is-swiping {
+  cursor: grabbing;
+  transition: none;
+}
+
+.flashcard.is-swipe-wrong {
+  filter: drop-shadow(-12px 12px 12px rgba(233, 87, 42, 0.24));
+}
+
+.flashcard.is-swipe-right {
+  filter: drop-shadow(12px 12px 12px rgba(24, 63, 50, 0.24));
+}
+
+.swipe-cue {
+  position: absolute;
+  z-index: 5;
+  top: 54px;
+  padding: 7px 10px;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  background: rgba(255, 250, 240, 0.9);
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.swipe-cue-wrong {
+  left: 3%;
+  color: var(--orange);
+  transform: rotate(-8deg) scale(0.9);
+}
+
+.swipe-cue-right {
+  right: 3%;
+  color: var(--forest);
+  transform: rotate(8deg) scale(0.9);
+}
+
+.swipe-cue.is-active {
+  opacity: 1;
+}
+
+.swipe-cue-wrong.is-active {
+  transform: rotate(-8deg) scale(1);
+}
+
+.swipe-cue-right.is-active {
+  transform: rotate(8deg) scale(1);
 }
 
 .flashcard-inner {
@@ -1028,6 +1088,10 @@ input:focus-visible {
   color: rgba(19, 36, 29, 0.48);
   font-size: 9px;
   letter-spacing: 0.035em;
+}
+
+.touch-hint {
+  display: none;
 }
 
 .empty-deck {
@@ -2164,7 +2228,12 @@ input:focus-visible {
   .flashcard {
     width: min(calc(100vw - 38px), 344px);
     height: 286px;
-    transform: rotate(-1deg);
+    transform: translate3d(var(--swipe-x), 0, 0) rotate(calc(-1deg + var(--swipe-tilt)));
+  }
+
+  .swipe-cue {
+    top: 30px;
+    font-size: 9px;
   }
 
   .card-face {
@@ -2319,6 +2388,19 @@ input:focus-visible {
   .rating-row strong {
     align-self: center;
     font-size: 14px;
+  }
+
+  .touch-hint {
+    display: inline;
+  }
+
+  .desktop-hint {
+    display: none;
+  }
+
+  .keyboard-hint {
+    display: block;
+    margin-top: 8px;
   }
 
   .album-strip {

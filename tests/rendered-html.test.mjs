@@ -21,6 +21,7 @@ test("server-renders the finished study experience", async () => {
   assert.match(html, /Incorrecta/);
   assert.match(html, /Correcta/);
   assert.match(html, /Pila de falladas/);
+  assert.match(html, /Desliza ← incorrecta · correcta →/);
   assert.match(html, /Verbos/);
   assert.match(html, /Practica una canción/);
   assert.match(html, /NUEVAYoL/);
@@ -102,6 +103,12 @@ test("removes the disposable starter and includes Netlify and small-phone output
   assert.match(page, /localStorage/);
   assert.match(page, /SpeechSynthesisUtterance/);
   assert.match(page, /answerWord/);
+  assert.match(page, /SWIPE_THRESHOLD = 72/);
+  assert.match(page, /onPointerDown=\{beginSwipe\}/);
+  assert.match(page, /onPointerMove=\{updateSwipe\}/);
+  assert.match(page, /onPointerUp=\{finishSwipe\}/);
+  assert.match(page, /answerWord\(deltaX > 0\)/);
+  assert.match(page, /suppressFlipRef/);
   assert.match(page, /nextMissed/);
   assert.match(page, /runComplete/);
   assert.match(page, /word\.tracks\.includes\(trackId\)/);
@@ -151,5 +158,8 @@ test("removes the disposable starter and includes Netlify and small-phone output
   assert.match(css, /env\(safe-area-inset-bottom\)/);
   assert.match(css, /min-height: 100dvh/);
   assert.match(css, /position: sticky/);
+  assert.match(css, /touch-action: pan-y/);
+  assert.match(css, /\.swipe-cue-wrong/);
+  assert.match(css, /\.swipe-cue-right/);
   assert.match(css, /\.lyrics-link/);
 });
